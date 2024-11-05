@@ -12,5 +12,9 @@ public class TodoRepository implements PanacheRepository<Todo>{
     public List<Todo> findAllTodos() {
         return listAll();  // Panacheのメソッドで全件取得
     }
+
+    public String create(){
+        return null;
+    }
     
 }

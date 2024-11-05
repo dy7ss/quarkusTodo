@@ -16,5 +16,9 @@ public class TodoService {
         return todoRepository.findAllTodos();
     }
 
+    public String create(){
+        return todoRepository.create();
+    }
+
 
 }

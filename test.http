@@ -1,5 +1,17 @@
 ###
-GET http://localhost:8080/hello/list
+GET http://localhost:8080/todo
 
 ###
 GET http://localhost:8080/hello/world
+
+###
+POST http://localhost:8080/todo
+Content-Type:application/json
+
+{
+    "taskId": "a",
+    "task": "aaa",
+    "registerDate": "2020-04-01"
+}
+
+###
