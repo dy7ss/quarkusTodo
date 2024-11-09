@@ -2,9 +2,11 @@ package repository;
 
 import java.util.List;
 
+import controller.Todo2;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
-import model.Todo;
+import jakarta.transaction.Transactional;
+import repository.entity.Todo;
 
 @ApplicationScoped
 public class TodoRepository implements PanacheRepository<Todo>{
@@ -13,8 +15,10 @@ public class TodoRepository implements PanacheRepository<Todo>{
         return listAll();  // Panacheのメソッドで全件取得
     }
 
-    public String create(){
-        return null;
+    @Transactional
+    public String create(Todo2 todo2){
+        TodoMapper.toTodo(todo2).persist();
+        return "OK";
     }
     
 }
