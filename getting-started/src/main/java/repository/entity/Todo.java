@@ -18,8 +18,4 @@ public class Todo extends PanacheEntityBase   {
     private Long taskId;
     private String task;
     private String registerDate;
-
-    public static Todo findById(Long id){
-        return find("id", id).firstResult();
-    }
 }

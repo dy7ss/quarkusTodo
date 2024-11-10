@@ -18,7 +18,9 @@ public class TodoRepository implements PanacheRepository<Todo>{
 
     @Transactional
     public void create(TodoCreateRequest todoCreateRequest){
-        TodoMapper.toTodo(todoCreateRequest).persist();
+        var tmp = TodoMapper.toTodo(todoCreateRequest);
+        tmp.setTaskId(null);
+        tmp.persist();
     }
 
     @Transactional

@@ -53,8 +53,8 @@ public class TodoResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response change(@PathParam("id") Long id, @Valid TodoCreateRequest todoCreateRequest){
-        var result = todoService.update(id, todoCreateRequest);
-        return Response.status(Response.Status.OK).entity(result).build();
+        Todo result = todoService.update(id, todoCreateRequest);
+        return Response.status(Response.Status.OK).entity(UpdateResponseMapper.toResponse(result)).build();
     }
 
     

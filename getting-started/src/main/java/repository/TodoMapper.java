@@ -7,7 +7,6 @@ import repository.entity.Todo;
 public class TodoMapper {
     public static Todo toTodo(TodoCreateRequest todoCreateRequest){
         Todo result = new Todo();
-        // result.setTaskId(todoInputRequest.getTaskId());
         result.setTask(todoCreateRequest.getTask());
         result.setRegisterDate(todoCreateRequest.getRegisterDate());
         return result;
