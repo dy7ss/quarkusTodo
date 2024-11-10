@@ -9,18 +9,28 @@ POST http://localhost:8080/todo
 Content-Type:application/json
 
 {
-    "taskId": "b",
+    "taskId": "123",
     "task": "aaa",
     "registerDate": "2020-04-01"
 }
 
 ###
-PUT http://localhost:8080/todo/123
+POST http://localhost:8080/todo
 Content-Type:application/json
 
 {
-    "taskId": "a",
+    "taskId": 123,
     "task": "aaa",
+    "registerDate": "2020-04-01"
+}
+
+###
+PUT http://localhost:8080/todo/c
+Content-Type:application/json
+
+{
+    "taskId": "c",
+    "task": "ccc",
     "registerDate": "2020-04-01"
 }
 

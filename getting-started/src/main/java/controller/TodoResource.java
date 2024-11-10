@@ -2,9 +2,11 @@ package controller;
 
 import java.util.List;
 
+import controller.model.TodoCreateRequest;
 import jakarta.inject.Inject;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
@@ -27,15 +29,6 @@ public class TodoResource {
     public String hello() {
         return "Hello from Quarkus REST";
     }
-
-    // @GET
-    // @Produces(MediaType.APPLICATION_JSON)
-    // public String list(){
-    //     var result = todoService.list();
-    //     System.out.println(result);
-    //     return CommonUtils.toJsonString(result);
-    // }
-
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Todo> list(){
@@ -43,24 +36,14 @@ public class TodoResource {
         System.out.println(result);
         return result;
     }
-
-    
-    // @POST
-    // @Produces(MediaType.APPLICATION_JSON)
-    // public String create(Todo todo){
-    //     var result = todoService.list();
-    //     System.out.println(result);
-    //     return CommonUtils.toJsonString(result);
-    // }
-
     
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response create(@Valid Todo2 todo2){
-        System.out.println(todo2);
+    public Response create(@Valid TodoCreateRequest todoCreateRequest){
+        System.out.println(todoCreateRequest);
         System.out.println("foo");
-        var result = todoService.create(todo2);
+        todoService.create(todoCreateRequest);
 
         return Response.status(Response.Status.CREATED).build();
     }
@@ -69,8 +52,18 @@ public class TodoResource {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response change(@PathParam("id") String id, @Valid Todo2 todo2){
-        return Response.status(Response.Status.OK).entity(todo2).build();
+    public Response change(@PathParam("id") Long id, @Valid TodoCreateRequest todoCreateRequest){
+        var result = todoService.update(id, todoCreateRequest);
+        return Response.status(Response.Status.OK).entity(result).build();
+    }
 
+    
+    @DELETE
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response delete(@PathParam("id") Long id){
+        todoService.delete(id);
+        return Response.status(Response.Status.NO_CONTENT).build();
     }
 }

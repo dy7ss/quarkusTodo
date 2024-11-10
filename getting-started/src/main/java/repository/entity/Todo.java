@@ -3,9 +3,10 @@ package repository.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Builder;
 import lombok.Data;
 
 @Entity
@@ -13,11 +14,12 @@ import lombok.Data;
 @Data
 public class Todo extends PanacheEntityBase   {
     @Id
-    private String taskId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long taskId;
     private String task;
     private String registerDate;
 
-    public static Todo findById(String id){
+    public static Todo findById(Long id){
         return find("id", id).firstResult();
     }
 }

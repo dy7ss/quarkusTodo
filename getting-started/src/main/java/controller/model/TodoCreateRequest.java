@@ -1,12 +1,12 @@
-package controller;
+package controller.model;
 
 import lombok.Data;
 import lombok.Setter;
 
 @Data
 @Setter
-public class Todo2 {
-    private String taskId;
+public class TodoCreateRequest {
+    private Long taskId;
     private String task;
     private String registerDate;
 }

@@ -9,6 +9,6 @@
 
 -- 初期データの挿入
 INSERT INTO todo (taskId, task, registerDate) VALUES 
-('Buy groceries', 'Milk, eggs, and bread', null),
-('Complete Quarkus tutorial', 'Finish the tutorial on Quarkus framework', null),
-('Plan weekend trip', 'Find a nice spot for the weekend', null);
+(1, 'Milk, eggs, and bread', null),
+(2, 'Finish the tutorial on Quarkus framework', null),
+(3, 'Find a nice spot for the weekend', null);
