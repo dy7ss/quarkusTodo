@@ -2,35 +2,25 @@
 GET http://localhost:8080/todo
 
 ###
-GET http://localhost:8080/hello/world
-
-###
 POST http://localhost:8080/todo
 Content-Type:application/json
 
 {
-    "taskId": "123",
     "task": "aaa",
     "registerDate": "2020-04-01"
 }
 
 ###
-POST http://localhost:8080/todo
+PUT http://localhost:8080/todo/4
 Content-Type:application/json
 
 {
-    "taskId": 123,
-    "task": "aaa",
-    "registerDate": "2020-04-01"
-}
-
-###
-PUT http://localhost:8080/todo/c
-Content-Type:application/json
-
-{
-    "taskId": "c",
+    "taskId": "4",
     "task": "ccc",
     "registerDate": "2020-04-01"
 }
+
+###
+DELETE http://localhost:8080/todo/4
+Content-Type:application/json
 
