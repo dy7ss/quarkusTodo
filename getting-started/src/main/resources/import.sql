@@ -17,3 +17,9 @@ INSERT INTO todo (task, registerDate) VALUES
 ('Milk, eggs, and bread', null),
 ('Finish the tutorial on Quarkus framework', null),
 ('Find a nice spot for the weekend', null);
+
+INSERT INTO users (userName, email) VALUES 
+('taro', 'example@yahoo.co.jp'),
+('jiro', 'example@google.com'),
+('saburo', 'example@hoge.com');
+

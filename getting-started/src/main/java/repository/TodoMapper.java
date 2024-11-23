@@ -1,7 +1,6 @@
 package repository;
 
 import controller.model.TodoCreateRequest;
-import jakarta.ws.rs.NotFoundException;
 import repository.entity.Todo;
 
 public class TodoMapper {
