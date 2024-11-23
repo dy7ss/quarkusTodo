@@ -14,7 +14,13 @@ public class TodoService {
     TodoRepository todoRepository;
 
     public List<Todo> list() {
+
+        // var tmp = todoRepository.findById_add(1L);
+        // System.out.println("tmp::" + tmp);
+        // System.out.println("foo");
+        // return null;
         return todoRepository.findAllTodos();
+
     }
 
     public void create(TodoCreateRequest todoCreateRequest){

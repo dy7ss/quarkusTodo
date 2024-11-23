@@ -16,6 +16,11 @@ public class TodoRepository implements PanacheRepository<Todo>{
         return listAll();  // Panacheのメソッドで全件取得
     }
 
+
+    public Todo findById_add(Long id){
+        return Todo.findById(id);
+    }
+
     @Transactional
     public void create(TodoCreateRequest todoCreateRequest){
         var tmp = TodoMapper.toTodo(todoCreateRequest);
@@ -31,7 +36,7 @@ public class TodoRepository implements PanacheRepository<Todo>{
             throw new NotFoundException();
         }
         entity.setTaskId(id);
-        entity.setTask(todoCreateRequest.getTask());
+        entity.setTitle(todoCreateRequest.getTask());
         entity.setRegisterDate(todoCreateRequest.getRegisterDate());
         return TodoMapper.toTodo(entity);
     }

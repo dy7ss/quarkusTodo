@@ -8,7 +8,7 @@ public class UpdateResponseMapper {
     public static TodoUpdateResponse toResponse(Todo result) {
         return TodoUpdateResponse.builder()
         .taskId(result.getTaskId())
-        .task(result.getTask())
+        .task(result.getTitle())
         .registerDate(result.getRegisterDate())
         .build();
     }
