@@ -17,6 +17,6 @@ public class UserResoure {
     @Produces(MediaType.APPLICATION_JSON)
     public Response list(){
         var result = userSerivce.list();
-        return Response.status(Response.Status.OK).build();
+        return Response.status(Response.Status.OK).entity(result).build();
     }
 }

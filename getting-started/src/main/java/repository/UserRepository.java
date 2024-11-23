@@ -18,14 +18,10 @@ public class UserRepository implements UserRepositoryImple, PanacheRepository<Us
 
     @Override
     public List<UserEntity> list() {
-        System.out.println("foo");
 
         var result = listAll();
         System.out.println(result);
 
-        return null;
+        return result;
     }
-
-
-
 }
