@@ -1,24 +1,45 @@
 package repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import controller.model.TodoCreateRequest;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
-import repository.entity.Todo;
+import repository.entity.TodoEntity;
 
 @ApplicationScoped
-public class TodoRepository implements PanacheRepository<Todo>{
+public class TodoRepository implements PanacheRepository<TodoEntity>{
 
-    public List<Todo> findAllTodos() {
-        return listAll();  // Panacheのメソッドで全件取得
+    public List<TodoEntity> findAllTodos(Long userId, String title) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("userId", userId);
+        params.put("title", "%" + title + "%");
+
+        System.out.println(userId);
+        System.out.println(title);
+
+        List<TodoEntity> result = TodoEntity.list("userId = :userId and title like :title", params);
+        // System.out.println(result);
+        // System.out.println(result.getClass().getSimpleName());
+        // System.out.println(result.stream().findFirst().get().getClass().getSimpleName());
+        return result;
+
+
+
+        // return TodoEntity.list("userId = :userId and title like :title",
+
+
+        // return TodoEntity.list("userId = :userId and title = :title", params);
+        // return TodoEntity.list("userId", userId);
     }
 
 
-    public Todo findById_add(Long id){
-        return Todo.findById(id);
+    public TodoEntity findById_add(Long id){
+        return TodoEntity.findById(id);
     }
 
     @Transactional
@@ -29,9 +50,9 @@ public class TodoRepository implements PanacheRepository<Todo>{
     }
 
     @Transactional
-    public Todo update(Long id, TodoCreateRequest todoCreateRequest){
+    public TodoEntity update(Long id, TodoCreateRequest todoCreateRequest){
 
-        Todo entity = Todo.findById(id);
+        TodoEntity entity = TodoEntity.findById(id);
         if (entity == null){
             throw new NotFoundException();
         }
@@ -44,7 +65,7 @@ public class TodoRepository implements PanacheRepository<Todo>{
     @Transactional
     public void delete(Long id){
 
-        Todo entity = Todo.findById(id);
+        TodoEntity entity = TodoEntity.findById(id);
         if (entity == null){
             throw new NotFoundException();
         }

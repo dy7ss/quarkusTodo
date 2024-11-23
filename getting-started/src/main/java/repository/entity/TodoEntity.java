@@ -18,7 +18,7 @@ import lombok.Data;
 @Entity
 @Table(name = "todo")
 @Data
-public class Todo extends PanacheEntityBase   {
+public class TodoEntity extends PanacheEntityBase   {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long taskId;
@@ -28,5 +28,5 @@ public class Todo extends PanacheEntityBase   {
 
     @OneToMany(mappedBy= "detailUserId")
     // @OneToMany
-    List<TodoDetail> detailList = new ArrayList<>();
+    List<TodoDetailEntity> detailList = new ArrayList<>();
 }

@@ -13,9 +13,10 @@ import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import repository.entity.Todo;
+import repository.entity.TodoEntity;
 import service.TodoService;
 
 @Path("/todo")
@@ -31,8 +32,8 @@ public class TodoResource {
     }
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Todo> list(){
-        var result = todoService.list();
+    public List<TodoEntity> list(@QueryParam("userId") Long userId, @QueryParam("title") String title){
+        var result = todoService.list(userId, title);
         System.out.println(result);
         return result;
     }
@@ -53,7 +54,7 @@ public class TodoResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response change(@PathParam("id") Long id, @Valid TodoCreateRequest todoCreateRequest){
-        Todo result = todoService.update(id, todoCreateRequest);
+        TodoEntity result = todoService.update(id, todoCreateRequest);
         return Response.status(Response.Status.OK).entity(UpdateResponseMapper.toResponse(result)).build();
     }
 

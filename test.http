@@ -4,6 +4,13 @@ GET http://localhost:8080/user
 ###
 GET http://localhost:8080/todo
 
+
+### 全文一致
+GET http://localhost:8080/todo?userId=1&title=Finish the tutorial on Quarkus framework
+
+
+### あいまい検索
+GET http://localhost:8080/todo?userId=1&title=Finish
 ###
 POST http://localhost:8080/todo
 Content-Type:application/json

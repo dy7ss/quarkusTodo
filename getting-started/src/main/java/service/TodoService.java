@@ -6,20 +6,20 @@ import controller.model.TodoCreateRequest;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import repository.TodoRepository;
-import repository.entity.Todo;
+import repository.entity.TodoEntity;
 
 @ApplicationScoped
 public class TodoService {
     @Inject
     TodoRepository todoRepository;
 
-    public List<Todo> list() {
+    public List<TodoEntity> list(Long userId, String title) {
 
         // var tmp = todoRepository.findById_add(1L);
         // System.out.println("tmp::" + tmp);
         // System.out.println("foo");
         // return null;
-        return todoRepository.findAllTodos();
+        return todoRepository.findAllTodos(userId, title);
 
     }
 
@@ -27,7 +27,7 @@ public class TodoService {
         todoRepository.create(todoCreateRequest);
     }
 
-    public Todo update(Long id, TodoCreateRequest todoCreateRequest){
+    public TodoEntity update(Long id, TodoCreateRequest todoCreateRequest){
         return todoRepository.update(id, todoCreateRequest);
     }
 
