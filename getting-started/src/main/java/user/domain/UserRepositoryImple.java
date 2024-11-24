@@ -1,11 +1,11 @@
-package repository.impl;
+package user.domain;
 
 import java.util.List;
 
-import repository.entity.UserEntity;
+import user.domain.entity.User;
 
 public interface UserRepositoryImple {
 
     public String getById();
-    public List<UserEntity> list();
+    public List<User> list();
 } 

@@ -1,18 +1,17 @@
-package service;
+package user.service;
 
 import java.util.List;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import repository.entity.UserEntity;
-import repository.impl.UserRepositoryImple;
-
+import user.domain.UserRepositoryImple;
+import user.domain.entity.User;
 @ApplicationScoped
 public class UserService {
     @Inject
     UserRepositoryImple userRepositoryImple;
 
-    public List<UserEntity> list(){
+    public List<User> list(){
         var result = userRepositoryImple.list();
         return result;
     }

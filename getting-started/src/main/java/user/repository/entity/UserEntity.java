@@ -1,4 +1,4 @@
-package repository.entity;
+package user.repository.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Entity;
