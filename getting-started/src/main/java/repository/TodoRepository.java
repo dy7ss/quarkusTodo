@@ -15,45 +15,17 @@ import repository.entity.TodoEntity;
 public class TodoRepository implements PanacheRepository<TodoEntity>{
 
     public List<TodoEntity> findAllTodos(Long userId, String title) {
-        // Map<String, Object> params = new HashMap<>();
-        // params.put("userId", userId);
-        // // params.put("title", "%" + title + "%");
-        // params.put("title", title);
-
-        // System.out.println(userId);
-        // System.out.println(title);
-        // System.out.println(params);
-
-        // List<TodoEntity> result = TodoEntity.list("userId = :userId and title like :title", params);
-
         Parameters params = Parameters.with("userId", userId);
 
         String query = "userId = :userId";
-        // var query = find("userId = :userId", Parameters.with("userId", userId));
 
         if (!StringUtil.isNullOrEmpty(title)){
             query += " and title like :title";
             params.and("title", "%" + title + "%");
-            // query = query.filter("title", Parameters.with("title", title));
-            // query = query.filter("title like :title", Parameters.with("title", "%" + title + "%"));
-            // query = query.filter("title", Parameters.with("title", title));
         }
 
         List<TodoEntity> result = find(query, params).list();
         return result;
-
-        // System.out.println(result);
-        // System.out.println(result.getClass().getSimpleName());
-        // System.out.println(result.stream().findFirst().get().getClass().getSimpleName());
-        // return result;
-
-
-
-        // return TodoEntity.list("userId = :userId and title like :title",
-
-
-        // return TodoEntity.list("userId = :userId and title = :title", params);
-        // return TodoEntity.list("userId", userId);
     }
 
 
@@ -89,5 +61,15 @@ public class TodoRepository implements PanacheRepository<TodoEntity>{
             throw new NotFoundException();
         }
         entity.delete();
+    }
+
+    @Transactional
+    public void complete(Long todoDtailId){
+
+    }
+
+    @Transactional
+    public void cancel(Long todoDtailId){
+        
     }
 }
