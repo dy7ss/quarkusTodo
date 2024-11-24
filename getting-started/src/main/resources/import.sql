@@ -16,6 +16,7 @@
 INSERT INTO todo (userId, title, registerDate) VALUES 
 (1, 'Milk, eggs, and bread', null),
 (1, 'Finish the tutorial on Quarkus framework', null),
+(1, 'null', 'registerDate'),
 (2, 'Find a nice spot for the weekend', null);
 
 INSERT INTO users (userName, email) VALUES 

@@ -8,6 +8,9 @@ GET http://localhost:8080/todo
 ### 全文一致
 GET http://localhost:8080/todo?userId=1&title=Finish the tutorial on Quarkus framework
 
+### 全文一致(titleが文字列のnull
+GET http://localhost:8080/todo?userId=1&title=null
+
 
 ### あいまい検索
 GET http://localhost:8080/todo?userId=1&title=Finish
