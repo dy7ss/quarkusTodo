@@ -9,6 +9,7 @@ public interface  TodoRepositoryImple {
     void create(Todo todo);
     void update(Todo todo);
     void delete(Long taskId);
-    void complete(Long taskId);
-    void cancel(Long taskId);
+    void changestatus(Long taskId, TaskStatus status);
+    // void complete(Long taskId);
+    // void cancel(Long taskId);
 }

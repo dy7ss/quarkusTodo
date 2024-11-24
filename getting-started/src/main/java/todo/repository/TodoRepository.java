@@ -2,13 +2,15 @@ package todo.repository;
 
 import java.util.List;
 
-import todo.domain.TodoRepositoryImple;
-import todo.domain.entity.Todo;
 import io.quarkus.panache.common.Parameters;
 import io.quarkus.runtime.util.StringUtil;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
+import todo.domain.TaskStatus;
+import todo.domain.TodoRepositoryImple;
+import todo.domain.entity.Todo;
+import todo.repository.entity.TodoDetailEntity;
 import todo.repository.entity.TodoEntity;
 import todo.repository.mapper.TodoMapper;
 
@@ -27,14 +29,19 @@ public class TodoRepository implements  TodoRepositoryImple {
         }
 
         List<TodoEntity> response = TodoEntity.find(query, params).list();
+        System.out.println("response:::" + response);
         List<Todo> result = TodoMapper.toTodoList(response);
+
         return result;
     }
 
     @Transactional
     @Override
     public void create(Todo todo){
-        var tmp = TodoMapper.toTodo(todo);
+        
+        System.out.println("fuu");
+        System.out.println(todo);
+        TodoEntity tmp = TodoMapper.toTodoOfCreate(todo);
         tmp.persist();
     }
 
@@ -49,7 +56,6 @@ public class TodoRepository implements  TodoRepositoryImple {
             throw new NotFoundException();
         }
         entity.setTitle(todo.getTitle());
-        // entity.setRegisterDate(todo.getRegisterDate());
     }
 
     @Transactional
@@ -63,13 +69,10 @@ public class TodoRepository implements  TodoRepositoryImple {
         entity.delete();
     }
 
+    @Override
     @Transactional
-    public void complete(Long todoDtailId){
-        
-    }
-
-    @Transactional
-    public void cancel(Long todoDtailId){
-        
+    public void changestatus(Long taskId, TaskStatus status) {
+        TodoDetailEntity entity = TodoDetailEntity.findById(taskId);
+        entity.setStatus(status.getCode());
     }
 }

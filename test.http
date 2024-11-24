@@ -8,6 +8,9 @@ GET http://localhost:8080/todo
 GET http://localhost:8080/todo?userId=1
 
 
+###
+GET http://localhost:8080/todo?userId=2
+
 ### 全文一致
 GET http://localhost:8080/todo?userId=1&title=Finish the tutorial on Quarkus framework
 
@@ -24,7 +27,13 @@ Content-Type:application/json
 {
     "userId": 1,
     "title": "aaa",
-    "registerDate": "2020-04-01"
+    "registerDate": "2020-04-01",
+    "detailList": [
+        {
+            "taskName": "taskNameExample"
+        }
+    ]
+    
 }
 
 ###
@@ -39,3 +48,8 @@ Content-Type:application/json
 DELETE http://localhost:8080/todo/4
 Content-Type:application/json
 
+
+
+###
+PATCH http://localhost:8080/todo/taskId/1?statusDivision=0
+Content-Type:application/json

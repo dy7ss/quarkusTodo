@@ -12,5 +12,5 @@ public class TodoCreateRequest {
     private Long userId;
     private String title;
     private String registerDate;
-    private List<TodoDetail> detailList = new ArrayList<>();
+    private List<ReqTodoDetail> detailList = new ArrayList<>();
 }

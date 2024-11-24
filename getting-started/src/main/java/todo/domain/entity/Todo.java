@@ -1,6 +1,5 @@
 package todo.domain.entity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Builder;
@@ -13,5 +12,5 @@ public class Todo {
     private Long userId;
     private String title;
     private String registerDate;
-    private List<TodoDetail> detailList = new ArrayList<>();
+    private List<TodoDetail> detailList;
 }

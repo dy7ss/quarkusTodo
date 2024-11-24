@@ -10,5 +10,5 @@ import lombok.Setter;
 @Setter
 public class TodoUpdateRequest {
     private String title;
-    private List<TodoDetail> detailList = new ArrayList<>();
+    private List<ReqTodoDetail> detailList = new ArrayList<>();
 }
