@@ -2,11 +2,11 @@ package todo.service;
 
 import java.util.List;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import todo.domain.TaskStatus;
 import todo.domain.TodoRepositoryImple;
 import todo.domain.entity.Todo;
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
 
 @ApplicationScoped
 public class TodoService {
@@ -30,6 +30,6 @@ public class TodoService {
     }
 
     public void changeStatus(Long taskId, TaskStatus status){
-        todoRepositoryImple.changestatus(taskId, status);
+        todoRepositoryImple.changeDetailstatus(taskId, status);
     }
 }

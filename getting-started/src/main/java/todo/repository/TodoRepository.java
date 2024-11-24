@@ -72,7 +72,7 @@ public class TodoRepository implements  TodoRepositoryImple {
 
     @Override
     @Transactional
-    public void changestatus(Long taskId, TaskStatus status) {
+    public void changeDetailstatus(Long taskId, TaskStatus status) {
         TodoDetailEntity entity = TodoDetailEntity.findById(taskId, LockModeType.PESSIMISTIC_WRITE);
         if (entity == null){
             throw new NotFoundException();
