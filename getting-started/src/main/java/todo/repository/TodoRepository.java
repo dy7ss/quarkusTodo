@@ -5,6 +5,7 @@ import java.util.List;
 import io.quarkus.panache.common.Parameters;
 import io.quarkus.runtime.util.StringUtil;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.persistence.LockModeType;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
 import todo.domain.TaskStatus;
@@ -72,7 +73,10 @@ public class TodoRepository implements  TodoRepositoryImple {
     @Override
     @Transactional
     public void changestatus(Long taskId, TaskStatus status) {
-        TodoDetailEntity entity = TodoDetailEntity.findById(taskId);
+        TodoDetailEntity entity = TodoDetailEntity.findById(taskId, LockModeType.PESSIMISTIC_WRITE);
+        if (entity == null){
+            throw new NotFoundException();
+        }
         entity.setStatus(status.getCode());
     }
 }
