@@ -1,9 +1,9 @@
-package service;
+package todo.service;
 
 import java.util.List;
 
-import domain.TodoRepositoryImple;
-import domain.entity.Todo;
+import todo.domain.TodoRepositoryImple;
+import todo.domain.entity.Todo;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 

@@ -1,7 +1,7 @@
-package controller;
+package todo.controller;
 
-import controller.model.TodoUpdateResponse;
-import repository.entity.TodoEntity;
+import todo.controller.model.TodoUpdateResponse;
+import todo.repository.entity.TodoEntity;
 
 public class UpdateResponseMapper {
 

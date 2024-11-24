@@ -1,4 +1,4 @@
-package domain.entity;
+package todo.controller.model;
 
 import lombok.Builder;
 import lombok.Value;
@@ -6,8 +6,5 @@ import lombok.Value;
 @Value
 @Builder
 public class TodoDetail {
-    private Long todoDetailId;
-    private Long detailUserId;
     private String taskName;
-    private String status;
 }

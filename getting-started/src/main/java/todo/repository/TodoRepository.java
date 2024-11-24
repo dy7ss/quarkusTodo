@@ -1,16 +1,16 @@
-package repository;
+package todo.repository;
 
 import java.util.List;
 
-import domain.TodoRepositoryImple;
-import domain.entity.Todo;
+import todo.domain.TodoRepositoryImple;
+import todo.domain.entity.Todo;
 import io.quarkus.panache.common.Parameters;
 import io.quarkus.runtime.util.StringUtil;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
-import repository.entity.TodoEntity;
-import repository.mapper.TodoMapper;
+import todo.repository.entity.TodoEntity;
+import todo.repository.mapper.TodoMapper;
 
 @ApplicationScoped
 public class TodoRepository implements  TodoRepositoryImple {

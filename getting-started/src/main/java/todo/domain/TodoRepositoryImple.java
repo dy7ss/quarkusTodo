@@ -1,8 +1,8 @@
-package domain;
+package todo.domain;
 
 import java.util.List;
 
-import domain.entity.Todo;
+import todo.domain.entity.Todo;
 
 public interface  TodoRepositoryImple {
     List<Todo> list(Long userId, String title);

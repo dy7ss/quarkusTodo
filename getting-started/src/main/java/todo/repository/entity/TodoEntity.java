@@ -1,4 +1,4 @@
-package repository.entity;
+package todo.repository.entity;
 
 
 import java.util.ArrayList;

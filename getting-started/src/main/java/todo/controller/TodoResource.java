@@ -1,10 +1,10 @@
-package controller;
+package todo.controller;
 
 import java.util.List;
 
-import controller.model.TodoCreateRequest;
-import controller.model.TodoUpdateRequest;
-import domain.entity.Todo;
+import todo.controller.model.TodoCreateRequest;
+import todo.controller.model.TodoUpdateRequest;
+import todo.domain.entity.Todo;
 import jakarta.inject.Inject;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.Consumes;
@@ -18,7 +18,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import service.TodoService;
+import todo.service.TodoService;
 
 @Path("/todo")
 public class TodoResource {

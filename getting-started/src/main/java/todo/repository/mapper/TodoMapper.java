@@ -1,8 +1,8 @@
-package repository.mapper;
+package todo.repository.mapper;
 
 import java.util.List;
-import domain.entity.Todo;
-import repository.entity.TodoEntity;
+import todo.domain.entity.Todo;
+import todo.repository.entity.TodoEntity;
 
 public class TodoMapper {
     public static TodoEntity toTodo(Todo todo){

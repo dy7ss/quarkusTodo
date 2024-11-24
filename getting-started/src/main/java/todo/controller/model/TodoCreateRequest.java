@@ -1,4 +1,4 @@
-package controller.model;
+package todo.controller.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,9 @@ import lombok.Setter;
 
 @Data
 @Setter
-public class TodoUpdateRequest {
+public class TodoCreateRequest {
+    private Long userId;
     private String title;
+    private String registerDate;
     private List<TodoDetail> detailList = new ArrayList<>();
 }
