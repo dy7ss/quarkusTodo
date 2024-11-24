@@ -1,14 +1,15 @@
-package controller.model;
+package domain.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.Data;
-import lombok.Setter;
+import lombok.Builder;
+import lombok.Value;
 
-@Data
-@Setter
-public class TodoCreateRequest {
+@Value
+@Builder
+public class Todo {
+    private Long taskId;
     private Long userId;
     private String title;
     private String registerDate;

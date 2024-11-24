@@ -2,19 +2,21 @@ package repository;
 
 import java.util.List;
 
-import controller.model.TodoCreateRequest;
-import io.quarkus.hibernate.orm.panache.PanacheRepository;
+import domain.TodoRepositoryImple;
+import domain.entity.Todo;
 import io.quarkus.panache.common.Parameters;
 import io.quarkus.runtime.util.StringUtil;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
 import repository.entity.TodoEntity;
+import repository.mapper.TodoMapper;
 
 @ApplicationScoped
-public class TodoRepository implements PanacheRepository<TodoEntity>{
+public class TodoRepository implements  TodoRepositoryImple {
 
-    public List<TodoEntity> findAllTodos(Long userId, String title) {
+    @Override
+    public List<Todo> list(Long userId, String title) {
         Parameters params = Parameters.with("userId", userId);
 
         String query = "userId = :userId";
@@ -24,36 +26,34 @@ public class TodoRepository implements PanacheRepository<TodoEntity>{
             params.and("title", "%" + title + "%");
         }
 
-        List<TodoEntity> result = find(query, params).list();
+        List<TodoEntity> response = TodoEntity.find(query, params).list();
+        List<Todo> result = TodoMapper.toTodoList(response);
         return result;
     }
 
-
-    public TodoEntity findById_add(Long id){
-        return TodoEntity.findById(id);
-    }
-
     @Transactional
-    public void create(TodoCreateRequest todoCreateRequest){
-        var tmp = TodoMapper.toTodo(todoCreateRequest);
-        tmp.setTaskId(null);
+    @Override
+    public void create(Todo todo){
+        var tmp = TodoMapper.toTodo(todo);
         tmp.persist();
     }
 
     @Transactional
-    public TodoEntity update(Long id, TodoCreateRequest todoCreateRequest){
+    @Override
+    public void update(Todo todo){
 
-        TodoEntity entity = TodoEntity.findById(id);
+        System.out.println("hoge");
+        System.out.println(todo);
+        TodoEntity entity = TodoEntity.findById(todo.getTaskId());
         if (entity == null){
             throw new NotFoundException();
         }
-        entity.setTaskId(id);
-        entity.setTitle(todoCreateRequest.getTask());
-        entity.setRegisterDate(todoCreateRequest.getRegisterDate());
-        return TodoMapper.toTodo(entity);
+        entity.setTitle(todo.getTitle());
+        // entity.setRegisterDate(todo.getRegisterDate());
     }
 
     @Transactional
+    @Override
     public void delete(Long id){
 
         TodoEntity entity = TodoEntity.findById(id);
@@ -65,7 +65,7 @@ public class TodoRepository implements PanacheRepository<TodoEntity>{
 
     @Transactional
     public void complete(Long todoDtailId){
-
+        
     }
 
     @Transactional

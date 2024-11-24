@@ -4,6 +4,9 @@ GET http://localhost:8080/user
 ###
 GET http://localhost:8080/todo
 
+###
+GET http://localhost:8080/todo?userId=1
+
 
 ### 全文一致
 GET http://localhost:8080/todo?userId=1&title=Finish the tutorial on Quarkus framework
@@ -19,18 +22,17 @@ POST http://localhost:8080/todo
 Content-Type:application/json
 
 {
-    "task": "aaa",
+    "userId": 1,
+    "title": "aaa",
     "registerDate": "2020-04-01"
 }
 
 ###
-PUT http://localhost:8080/todo/4
+PUT http://localhost:8080/todo/user/1/task/1
 Content-Type:application/json
 
 {
-    "taskId": "4",
-    "task": "ccc",
-    "registerDate": "2020-04-01"
+    "title": "ccc"
 }
 
 ###

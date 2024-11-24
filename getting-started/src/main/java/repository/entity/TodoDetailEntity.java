@@ -17,8 +17,4 @@ public class TodoDetailEntity {
     private Long detailUserId;
     private String taskName;
     private String status;
-
-    // @ManyToOne
-    // @JoinColumn(name = "userId", insertable=false, updatable=false)
-    // private Todo todo;
 }
