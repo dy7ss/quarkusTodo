@@ -5,8 +5,8 @@ import lombok.Value;
 
 @Value
 @Builder
-public class TodoInputResponse {
-    private String taskId;
+public class ProjectUpdateResponse {
+    private Long taskId;
     private String task;
     private String registerDate;
 }

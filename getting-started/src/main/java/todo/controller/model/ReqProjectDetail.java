@@ -5,6 +5,6 @@ import lombok.Value;
 
 @Value
 @Builder
-public class ReqTodoDetail {
+public class ReqProjectDetail {
     private String taskName;
 }

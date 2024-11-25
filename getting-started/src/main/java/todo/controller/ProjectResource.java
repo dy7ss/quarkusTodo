@@ -16,21 +16,21 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import todo.controller.mapper.TodoDetailMapper;
-import todo.controller.model.TodoCreateRequest;
-import todo.controller.model.TodoUpdateRequest;
+import todo.controller.mapper.TaskMapper;
+import todo.controller.model.ProjectCreateRequest;
+import todo.controller.model.ProjectUpdateRequest;
 import todo.domain.TaskStatus;
-import todo.domain.entity.Todo;
-import todo.service.TodoService;
+import todo.domain.entity.Project;
+import todo.service.ProjectService;
 
 @Path("/todo")
-public class TodoResource {
+public class ProjectResource {
     @Inject
-    TodoService todoService;
+    ProjectService todoService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Todo> list(@QueryParam("userId") Long userId, @QueryParam("title") String title){
+    public List<Project> list(@QueryParam("userId") Long userId, @QueryParam("title") String title){
         var result = todoService.list(userId, title);
         System.out.println(result);
         return result;
@@ -39,15 +39,15 @@ public class TodoResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response create(@Valid TodoCreateRequest todoCreateRequest){
+    public Response create(@Valid ProjectCreateRequest todoCreateRequest){
         System.out.println(todoCreateRequest);
         System.out.println("foo");
 
-        Todo input = Todo.builder()
+        Project input = Project.builder()
         .userId(todoCreateRequest.getUserId())
         .title(todoCreateRequest.getTitle())
         .registerDate(todoCreateRequest.getRegisterDate())
-        .detailList(TodoDetailMapper.toTodoDetailList(todoCreateRequest.getDetailList()))
+        .detailList(TaskMapper.toTodoDetailList(todoCreateRequest.getDetailList()))
         .build();
 
         System.out.println("input:::" + input);
@@ -61,13 +61,13 @@ public class TodoResource {
     @Path("/user/{userId}/task/{taskId}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response change(@PathParam("userId") Long userId, @PathParam("taskId") Long taskId, @Valid TodoUpdateRequest todoUpdateRequest){
+    public Response change(@PathParam("userId") Long userId, @PathParam("taskId") Long taskId, @Valid ProjectUpdateRequest todoUpdateRequest){
 
-        Todo todo = Todo.builder()
+        Project todo = Project.builder()
         .userId(userId)
         .taskId(taskId)
         .title(todoUpdateRequest.getTitle())
-        .detailList(TodoDetailMapper.toTodoDetailList(todoUpdateRequest.getDetailList()))
+        .detailList(TaskMapper.toTodoDetailList(todoUpdateRequest.getDetailList()))
         .build();
         todoService.update(todo);
         return Response.status(Response.Status.OK).entity(null).build();

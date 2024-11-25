@@ -1,6 +1,6 @@
 package todo.domain;
 
-public interface TodoDetailRepositoryImple {
+public interface TaskRepositoryImple {
     // public void update();
     // public void changestatus(Long taskId, TaskStatus status);
 }

@@ -4,24 +4,24 @@ import java.util.List;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import todo.domain.ProjectRepositoryImple;
 import todo.domain.TaskStatus;
-import todo.domain.TodoRepositoryImple;
-import todo.domain.entity.Todo;
+import todo.domain.entity.Project;
 
 @ApplicationScoped
-public class TodoService {
+public class ProjectService {
     @Inject
-    TodoRepositoryImple todoRepositoryImple;
+    ProjectRepositoryImple todoRepositoryImple;
 
-    public List<Todo> list(Long userId, String title) {
+    public List<Project> list(Long userId, String title) {
         return todoRepositoryImple.list(userId, title);
     }
 
-    public void create(Todo todo){
+    public void create(Project todo){
         todoRepositoryImple.create(todo);
     }
 
-    public void update(Todo todo){
+    public void update(Project todo){
         todoRepositoryImple.update(todo);
     }
 

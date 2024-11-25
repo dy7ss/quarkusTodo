@@ -6,7 +6,7 @@ import todo.domain.TaskStatus;
 
 @Value
 @Builder
-public class TodoDetail {
+public class Task {
     private Long todoDetailId;
     private Long detailUserId;
     private String taskName;

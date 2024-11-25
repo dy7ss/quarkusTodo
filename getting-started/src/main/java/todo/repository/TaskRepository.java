@@ -1,8 +1,8 @@
 package todo.repository;
 
-import todo.domain.TodoDetailRepositoryImple;
+import todo.domain.TaskRepositoryImple;
 
-public class TodoDetailRepository implements TodoDetailRepositoryImple {
+public class TaskRepository implements TaskRepositoryImple {
 
     // @Override
     // public void update() {

@@ -7,10 +7,10 @@ import lombok.Value;
 
 @Value
 @Builder
-public class Todo {
+public class Project {
     private Long taskId;
     private Long userId;
     private String title;
     private String registerDate;
-    private List<TodoDetail> detailList;
+    private List<Task> detailList;
 }

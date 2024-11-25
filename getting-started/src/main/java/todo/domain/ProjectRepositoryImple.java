@@ -2,12 +2,12 @@ package todo.domain;
 
 import java.util.List;
 
-import todo.domain.entity.Todo;
+import todo.domain.entity.Project;
 
-public interface  TodoRepositoryImple {
-    List<Todo> list(Long userId, String title);
-    void create(Todo todo);
-    void update(Todo todo);
+public interface  ProjectRepositoryImple {
+    List<Project> list(Long userId, String title);
+    void create(Project todo);
+    void update(Project todo);
     void delete(Long taskId);
     void changeDetailstatus(Long taskId, TaskStatus status);
     // void complete(Long taskId);

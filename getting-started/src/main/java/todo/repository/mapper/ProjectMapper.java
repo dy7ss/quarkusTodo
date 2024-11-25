@@ -3,31 +3,31 @@ package todo.repository.mapper;
 import java.util.List;
 
 import todo.domain.TaskStatus;
-import todo.domain.entity.Todo;
-import todo.domain.entity.TodoDetail;
-import todo.repository.entity.TodoEntity;
+import todo.domain.entity.Project;
+import todo.domain.entity.Task;
+import todo.repository.entity.ProjectEntity;
 
-public class TodoMapper {
-    public static TodoEntity toTodo(Todo todo) {
-        TodoEntity result = new TodoEntity();
+public class ProjectMapper {
+    public static ProjectEntity toTodo(Project todo) {
+        ProjectEntity result = new ProjectEntity();
         result.setUserId(todo.getUserId());
         result.setTitle(todo.getTitle());
         result.setRegisterDate(todo.getRegisterDate());
         return result;
     }
 
-    public static List<Todo> toTodoList(List<TodoEntity> response) {
+    public static List<Project> toTodoList(List<ProjectEntity> response) {
         return response.stream().map(i -> toTodo(i)).toList();
     }
 
-    public static Todo toTodo(TodoEntity input) {
-        return Todo.builder()
+    public static Project toTodo(ProjectEntity input) {
+        return Project.builder()
                 .taskId(input.getTaskId())
                 .userId(input.getUserId())
                 .title(input.getTitle())
                 .registerDate(input.getRegisterDate())
                 .detailList(input.getDetailList().stream().map(
-                        i -> TodoDetail.builder()
+                        i -> Task.builder()
                                 .todoDetailId(i.getTodoDetailId())
                                 .detailUserId(i.getDetailUserId())
                                 .taskName(i.getTaskName())
@@ -37,12 +37,12 @@ public class TodoMapper {
                 .build();
     }
 
-    public static TodoEntity toTodoOfCreate(Todo todo) {
-        TodoEntity result = new TodoEntity();
+    public static ProjectEntity toTodoOfCreate(Project todo) {
+        ProjectEntity result = new ProjectEntity();
         result.setUserId(todo.getUserId());
         result.setTitle(todo.getTitle());
         result.setRegisterDate(todo.getRegisterDate());
-        result.setDetailList(TodoDetailMapper.toDetailList(todo.getDetailList()));
+        result.setDetailList(TaskMapper.toDetailList(todo.getDetailList()));
 
         System.out.println("fuu2");
         System.out.println(result);

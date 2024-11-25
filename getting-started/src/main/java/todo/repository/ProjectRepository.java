@@ -8,18 +8,18 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.LockModeType;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
+import todo.domain.ProjectRepositoryImple;
 import todo.domain.TaskStatus;
-import todo.domain.TodoRepositoryImple;
-import todo.domain.entity.Todo;
-import todo.repository.entity.TodoDetailEntity;
-import todo.repository.entity.TodoEntity;
-import todo.repository.mapper.TodoMapper;
+import todo.domain.entity.Project;
+import todo.repository.entity.TaskEntity;
+import todo.repository.entity.ProjectEntity;
+import todo.repository.mapper.ProjectMapper;
 
 @ApplicationScoped
-public class TodoRepository implements  TodoRepositoryImple {
+public class ProjectRepository implements  ProjectRepositoryImple {
 
     @Override
-    public List<Todo> list(Long userId, String title) {
+    public List<Project> list(Long userId, String title) {
         Parameters params = Parameters.with("userId", userId);
 
         String query = "userId = :userId";
@@ -29,30 +29,30 @@ public class TodoRepository implements  TodoRepositoryImple {
             params.and("title", "%" + title + "%");
         }
 
-        List<TodoEntity> response = TodoEntity.find(query, params).list();
+        List<ProjectEntity> response = ProjectEntity.find(query, params).list();
         System.out.println("response:::" + response);
-        List<Todo> result = TodoMapper.toTodoList(response);
+        List<Project> result = ProjectMapper.toTodoList(response);
 
         return result;
     }
 
     @Transactional
     @Override
-    public void create(Todo todo){
+    public void create(Project todo){
         
         System.out.println("fuu");
         System.out.println(todo);
-        TodoEntity tmp = TodoMapper.toTodoOfCreate(todo);
+        ProjectEntity tmp = ProjectMapper.toTodoOfCreate(todo);
         tmp.persist();
     }
 
     @Transactional
     @Override
-    public void update(Todo todo){
+    public void update(Project todo){
 
         System.out.println("hoge");
         System.out.println(todo);
-        TodoEntity entity = TodoEntity.findById(todo.getTaskId());
+        ProjectEntity entity = ProjectEntity.findById(todo.getTaskId());
         if (entity == null){
             throw new NotFoundException();
         }
@@ -63,7 +63,7 @@ public class TodoRepository implements  TodoRepositoryImple {
     @Override
     public void delete(Long id){
 
-        TodoEntity entity = TodoEntity.findById(id);
+        ProjectEntity entity = ProjectEntity.findById(id);
         if (entity == null){
             throw new NotFoundException();
         }
@@ -73,7 +73,7 @@ public class TodoRepository implements  TodoRepositoryImple {
     @Override
     @Transactional
     public void changeDetailstatus(Long taskId, TaskStatus status) {
-        TodoDetailEntity entity = TodoDetailEntity.findById(taskId, LockModeType.PESSIMISTIC_WRITE);
+        TaskEntity entity = TaskEntity.findById(taskId, LockModeType.PESSIMISTIC_WRITE);
         if (entity == null){
             throw new NotFoundException();
         }

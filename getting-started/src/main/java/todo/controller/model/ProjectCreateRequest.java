@@ -8,7 +8,9 @@ import lombok.Setter;
 
 @Data
 @Setter
-public class TodoUpdateRequest {
+public class ProjectCreateRequest {
+    private Long userId;
     private String title;
-    private List<ReqTodoDetail> detailList = new ArrayList<>();
+    private String registerDate;
+    private List<ReqProjectDetail> detailList = new ArrayList<>();
 }
