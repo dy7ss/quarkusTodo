@@ -1,10 +1,10 @@
-package todo.controller.mapper;
+package project.controller.mapper;
 
 import java.util.List;
 
-import todo.controller.model.ReqProjectDetail;
-import todo.domain.TaskStatus;
-import todo.domain.entity.Task;
+import project.controller.model.ReqProjectDetail;
+import project.domain.TaskStatus;
+import project.domain.entity.Task;
 
 public class TaskMapper {
 

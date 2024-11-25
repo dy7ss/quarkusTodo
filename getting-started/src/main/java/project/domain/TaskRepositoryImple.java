@@ -1,4 +1,4 @@
-package todo.domain;
+package project.domain;
 
 public interface TaskRepositoryImple {
     // public void update();

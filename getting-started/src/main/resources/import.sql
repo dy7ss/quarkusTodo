@@ -13,7 +13,7 @@
 -- (2, 'Finish the tutorial on Quarkus framework', null),
 -- (3, 'Find a nice spot for the weekend', null);
 
-INSERT INTO todo (userId, title, registerDate) VALUES 
+INSERT INTO project (userId, title, registerDate) VALUES 
 (1, 'Milk, eggs, and bread', null),
 (1, 'Finish the tutorial on Quarkus framework', null),
 (1, 'null', 'registerDate'),
@@ -24,7 +24,7 @@ INSERT INTO users (userName, email) VALUES
 ('jiro', 'example@google.com'),
 ('saburo', 'example@hoge.com');
 
-INSERT INTO tododetail (detailUserId, taskName, status) VALUES
+INSERT INTO task (detailUserId, taskName, status) VALUES
 (1, '明細１', '1'),
 (1, '明細２', '0'),
 (2, '明細３', '1'),

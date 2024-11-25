@@ -1,4 +1,4 @@
-package todo.controller.model;
+package project.controller.model;
 
 import java.util.ArrayList;
 import java.util.List;

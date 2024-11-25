@@ -1,6 +1,6 @@
-package todo.repository;
+package project.repository;
 
-import todo.domain.TaskRepositoryImple;
+import project.domain.TaskRepositoryImple;
 
 public class TaskRepository implements TaskRepositoryImple {
 

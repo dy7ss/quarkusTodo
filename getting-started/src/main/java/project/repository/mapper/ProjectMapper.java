@@ -1,14 +1,14 @@
-package todo.repository.mapper;
+package project.repository.mapper;
 
 import java.util.List;
 
-import todo.domain.TaskStatus;
-import todo.domain.entity.Project;
-import todo.domain.entity.Task;
-import todo.repository.entity.ProjectEntity;
+import project.domain.TaskStatus;
+import project.domain.entity.Project;
+import project.domain.entity.Task;
+import project.repository.entity.ProjectEntity;
 
 public class ProjectMapper {
-    public static ProjectEntity toTodo(Project project) {
+    public static ProjectEntity toProject(Project project) {
         ProjectEntity result = new ProjectEntity();
         result.setUserId(project.getUserId());
         result.setTitle(project.getTitle());
@@ -26,9 +26,9 @@ public class ProjectMapper {
                 .userId(input.getUserId())
                 .title(input.getTitle())
                 .registerDate(input.getRegisterDate())
-                .detailList(input.getDetailList().stream().map(
+                .taskList(input.getTaskList().stream().map(
                         i -> Task.builder()
-                                .todoDetailId(i.getTodoDetailId())
+                                .taskId(i.getTaskId())
                                 .detailUserId(i.getDetailUserId())
                                 .taskName(i.getTaskName())
                                 .status(TaskStatus.fromCode(i.getStatus()))
@@ -37,12 +37,12 @@ public class ProjectMapper {
                 .build();
     }
 
-    public static ProjectEntity toTodoOfCreate(Project project) {
+    public static ProjectEntity toProjectOfCreate(Project project) {
         ProjectEntity result = new ProjectEntity();
         result.setUserId(project.getUserId());
         result.setTitle(project.getTitle());
         result.setRegisterDate(project.getRegisterDate());
-        result.setDetailList(TaskMapper.toDetailList(project.getDetailList()));
+        result.setTaskList(TaskMapper.toTaskList(project.getTaskList()));
 
         System.out.println("fuu2");
         System.out.println(result);

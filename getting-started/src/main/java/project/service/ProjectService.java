@@ -1,12 +1,12 @@
-package todo.service;
+package project.service;
 
 import java.util.List;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import todo.domain.ProjectRepositoryImple;
-import todo.domain.TaskStatus;
-import todo.domain.entity.Project;
+import project.domain.ProjectRepositoryImple;
+import project.domain.TaskStatus;
+import project.domain.entity.Project;
 
 @ApplicationScoped
 public class ProjectService {

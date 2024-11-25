@@ -1,4 +1,4 @@
-package todo.domain;
+package project.domain;
 
 public enum TaskStatus {
     NOT_STARTED("0","未着手"),

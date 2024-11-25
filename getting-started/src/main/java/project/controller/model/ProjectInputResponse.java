@@ -1,4 +1,4 @@
-package todo.controller.model;
+package project.controller.model;
 
 import lombok.Builder;
 import lombok.Value;

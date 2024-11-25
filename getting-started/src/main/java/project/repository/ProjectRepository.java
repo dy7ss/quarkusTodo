@@ -1,4 +1,4 @@
-package todo.repository;
+package project.repository;
 
 import java.util.List;
 
@@ -8,12 +8,12 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.LockModeType;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
-import todo.domain.ProjectRepositoryImple;
-import todo.domain.TaskStatus;
-import todo.domain.entity.Project;
-import todo.repository.entity.TaskEntity;
-import todo.repository.entity.ProjectEntity;
-import todo.repository.mapper.ProjectMapper;
+import project.domain.ProjectRepositoryImple;
+import project.domain.TaskStatus;
+import project.domain.entity.Project;
+import project.repository.entity.ProjectEntity;
+import project.repository.entity.TaskEntity;
+import project.repository.mapper.ProjectMapper;
 
 @ApplicationScoped
 public class ProjectRepository implements  ProjectRepositoryImple {
@@ -38,25 +38,25 @@ public class ProjectRepository implements  ProjectRepositoryImple {
 
     @Transactional
     @Override
-    public void create(Project todo){
+    public void create(Project project){
         
         System.out.println("fuu");
-        System.out.println(todo);
-        ProjectEntity tmp = ProjectMapper.toTodoOfCreate(todo);
+        System.out.println(project);
+        ProjectEntity tmp = ProjectMapper.toProjectOfCreate(project);
         tmp.persist();
     }
 
     @Transactional
     @Override
-    public void update(Project todo){
+    public void update(Project project){
 
         System.out.println("hoge");
-        System.out.println(todo);
-        ProjectEntity entity = ProjectEntity.findById(todo.getTaskId());
+        System.out.println(project);
+        ProjectEntity entity = ProjectEntity.findById(project.getTaskId());
         if (entity == null){
             throw new NotFoundException();
         }
-        entity.setTitle(todo.getTitle());
+        entity.setTitle(project.getTitle());
     }
 
     @Transactional

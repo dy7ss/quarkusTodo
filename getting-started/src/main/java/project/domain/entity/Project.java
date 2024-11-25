@@ -1,4 +1,4 @@
-package todo.domain.entity;
+package project.domain.entity;
 
 import java.util.List;
 
@@ -12,5 +12,5 @@ public class Project {
     private Long userId;
     private String title;
     private String registerDate;
-    private List<Task> detailList;
+    private List<Task> taskList;
 }
