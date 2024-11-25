@@ -11,25 +11,25 @@ import todo.domain.entity.Project;
 @ApplicationScoped
 public class ProjectService {
     @Inject
-    ProjectRepositoryImple todoRepositoryImple;
+    ProjectRepositoryImple projectRepositoryImple;
 
     public List<Project> list(Long userId, String title) {
-        return todoRepositoryImple.list(userId, title);
+        return projectRepositoryImple.list(userId, title);
     }
 
-    public void create(Project todo){
-        todoRepositoryImple.create(todo);
+    public void create(Project project){
+        projectRepositoryImple.create(project);
     }
 
-    public void update(Project todo){
-        todoRepositoryImple.update(todo);
+    public void update(Project project){
+        projectRepositoryImple.update(project);
     }
 
     public void delete(Long id) {
-        todoRepositoryImple.delete(id);
+        projectRepositoryImple.delete(id);
     }
 
     public void changeStatus(Long taskId, TaskStatus status){
-        todoRepositoryImple.changeDetailstatus(taskId, status);
+        projectRepositoryImple.changeDetailstatus(taskId, status);
     }
 }

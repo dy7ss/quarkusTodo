@@ -8,7 +8,7 @@ import todo.domain.entity.Task;
 
 public class TaskMapper {
 
-    public static List<Task> toTodoDetailList(List<ReqProjectDetail> reqList) {
+    public static List<Task> toTaskList(List<ReqProjectDetail> reqList) {
             return reqList.stream().map(i -> Task.builder()
             .taskName(i.getTaskName())
             .status(TaskStatus.NOT_STARTED)

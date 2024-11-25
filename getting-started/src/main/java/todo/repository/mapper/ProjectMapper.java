@@ -8,19 +8,19 @@ import todo.domain.entity.Task;
 import todo.repository.entity.ProjectEntity;
 
 public class ProjectMapper {
-    public static ProjectEntity toTodo(Project todo) {
+    public static ProjectEntity toTodo(Project project) {
         ProjectEntity result = new ProjectEntity();
-        result.setUserId(todo.getUserId());
-        result.setTitle(todo.getTitle());
-        result.setRegisterDate(todo.getRegisterDate());
+        result.setUserId(project.getUserId());
+        result.setTitle(project.getTitle());
+        result.setRegisterDate(project.getRegisterDate());
         return result;
     }
 
-    public static List<Project> toTodoList(List<ProjectEntity> response) {
-        return response.stream().map(i -> toTodo(i)).toList();
+    public static List<Project> toProjectList(List<ProjectEntity> response) {
+        return response.stream().map(i -> toProject(i)).toList();
     }
 
-    public static Project toTodo(ProjectEntity input) {
+    public static Project toProject(ProjectEntity input) {
         return Project.builder()
                 .taskId(input.getTaskId())
                 .userId(input.getUserId())
@@ -37,12 +37,12 @@ public class ProjectMapper {
                 .build();
     }
 
-    public static ProjectEntity toTodoOfCreate(Project todo) {
+    public static ProjectEntity toTodoOfCreate(Project project) {
         ProjectEntity result = new ProjectEntity();
-        result.setUserId(todo.getUserId());
-        result.setTitle(todo.getTitle());
-        result.setRegisterDate(todo.getRegisterDate());
-        result.setDetailList(TaskMapper.toDetailList(todo.getDetailList()));
+        result.setUserId(project.getUserId());
+        result.setTitle(project.getTitle());
+        result.setRegisterDate(project.getRegisterDate());
+        result.setDetailList(TaskMapper.toDetailList(project.getDetailList()));
 
         System.out.println("fuu2");
         System.out.println(result);

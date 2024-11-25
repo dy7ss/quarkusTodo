@@ -26,12 +26,12 @@ import todo.service.ProjectService;
 @Path("/todo")
 public class ProjectResource {
     @Inject
-    ProjectService todoService;
+    ProjectService projectService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Project> list(@QueryParam("userId") Long userId, @QueryParam("title") String title){
-        var result = todoService.list(userId, title);
+        var result = projectService.list(userId, title);
         System.out.println(result);
         return result;
     }
@@ -47,12 +47,12 @@ public class ProjectResource {
         .userId(todoCreateRequest.getUserId())
         .title(todoCreateRequest.getTitle())
         .registerDate(todoCreateRequest.getRegisterDate())
-        .detailList(TaskMapper.toTodoDetailList(todoCreateRequest.getDetailList()))
+        .detailList(TaskMapper.toTaskList(todoCreateRequest.getDetailList()))
         .build();
 
         System.out.println("input:::" + input);
 
-        todoService.create(input);
+        projectService.create(input);
 
         return Response.status(Response.Status.CREATED).build();
     }
@@ -67,9 +67,9 @@ public class ProjectResource {
         .userId(userId)
         .taskId(taskId)
         .title(todoUpdateRequest.getTitle())
-        .detailList(TaskMapper.toTodoDetailList(todoUpdateRequest.getDetailList()))
+        .detailList(TaskMapper.toTaskList(todoUpdateRequest.getDetailList()))
         .build();
-        todoService.update(todo);
+        projectService.update(todo);
         return Response.status(Response.Status.OK).entity(null).build();
     }
 
@@ -79,7 +79,7 @@ public class ProjectResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response delete(@PathParam("id") Long id){
-        todoService.delete(id);
+        projectService.delete(id);
         return Response.status(Response.Status.NO_CONTENT).build();
     }
     
@@ -88,7 +88,7 @@ public class ProjectResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response changeStatus(@PathParam("taskId") Long taskId, @QueryParam("statusDivision") String statusDivision ){
-        todoService.changeStatus(taskId, TaskStatus.fromCode(statusDivision));
+        projectService.changeStatus(taskId, TaskStatus.fromCode(statusDivision));
         return Response.status(Response.Status.NO_CONTENT).build();
     }
 }

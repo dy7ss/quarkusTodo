@@ -31,7 +31,7 @@ public class ProjectRepository implements  ProjectRepositoryImple {
 
         List<ProjectEntity> response = ProjectEntity.find(query, params).list();
         System.out.println("response:::" + response);
-        List<Project> result = ProjectMapper.toTodoList(response);
+        List<Project> result = ProjectMapper.toProjectList(response);
 
         return result;
     }
