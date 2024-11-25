@@ -8,6 +8,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.LockModeType;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
+import lombok.extern.slf4j.Slf4j;
 import project.domain.ProjectRepositoryImple;
 import project.domain.TaskStatus;
 import project.domain.entity.Project;
@@ -16,6 +17,7 @@ import project.repository.entity.TaskEntity;
 import project.repository.mapper.ProjectMapper;
 
 @ApplicationScoped
+@Slf4j
 public class ProjectRepository implements  ProjectRepositoryImple {
 
     @Override
@@ -32,6 +34,8 @@ public class ProjectRepository implements  ProjectRepositoryImple {
         List<ProjectEntity> response = ProjectEntity.find(query, params).list();
         System.out.println("response:::" + response);
         List<Project> result = ProjectMapper.toProjectList(response);
+        log.debug("result:::" + result);
+        log.info("result:::2" + result);
 
         return result;
     }
