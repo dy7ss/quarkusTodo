@@ -22,14 +22,14 @@ public class ProjectMapper {
 
     public static Project toProject(ProjectEntity input) {
         return Project.builder()
-                .taskId(input.getTaskId())
+                .projectId(input.getProjectId())
                 .userId(input.getUserId())
                 .title(input.getTitle())
                 .registerDate(input.getRegisterDate())
                 .taskList(input.getTaskList().stream().map(
                         i -> Task.builder()
                                 .taskId(i.getTaskId())
-                                .detailUserId(i.getDetailUserId())
+                                .parentProjectId(i.getParentProjectId())
                                 .taskName(i.getTaskName())
                                 .status(TaskStatus.fromCode(i.getStatus()))
                                 .build())

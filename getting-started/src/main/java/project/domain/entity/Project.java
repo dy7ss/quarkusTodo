@@ -8,7 +8,7 @@ import lombok.Value;
 @Value
 @Builder
 public class Project {
-    private Long taskId;
+    private Long projectId;
     private Long userId;
     private String title;
     private String registerDate;

@@ -7,7 +7,7 @@ public class UpdateResponseMapper {
 
     public static ProjectUpdateResponse toResponse(ProjectEntity result) {
         return ProjectUpdateResponse.builder()
-        .taskId(result.getTaskId())
+        .projectId(result.getProjectId())
         .task(result.getTitle())
         .registerDate(result.getRegisterDate())
         .build();

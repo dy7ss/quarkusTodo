@@ -24,7 +24,7 @@ INSERT INTO users (userName, email) VALUES
 ('jiro', 'example@google.com'),
 ('saburo', 'example@hoge.com');
 
-INSERT INTO task (detailUserId, taskName, status) VALUES
+INSERT INTO task (parentProjectId, taskName, status) VALUES
 (1, '明細１', '1'),
 (1, '明細２', '0'),
 (2, '明細３', '1'),

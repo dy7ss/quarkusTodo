@@ -6,7 +6,7 @@ import lombok.Value;
 @Value
 @Builder
 public class ProjectUpdateResponse {
-    private Long taskId;
+    private Long projectId;
     private String task;
     private String registerDate;
 }

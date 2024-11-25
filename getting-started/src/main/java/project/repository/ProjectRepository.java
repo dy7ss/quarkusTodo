@@ -52,7 +52,7 @@ public class ProjectRepository implements  ProjectRepositoryImple {
 
         System.out.println("hoge");
         System.out.println(project);
-        ProjectEntity entity = ProjectEntity.findById(project.getTaskId());
+        ProjectEntity entity = ProjectEntity.findById(project.getProjectId());
         if (entity == null){
             throw new NotFoundException();
         }

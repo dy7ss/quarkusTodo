@@ -61,11 +61,11 @@ public class ProjectResource {
     @Path("/user/{userId}/task/{taskId}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response change(@PathParam("userId") Long userId, @PathParam("taskId") Long taskId, @Valid ProjectUpdateRequest projectUpdateRequest){
+    public Response change(@PathParam("userId") Long userId, @PathParam("projectId") Long projectId, @Valid ProjectUpdateRequest projectUpdateRequest){
 
         Project project = Project.builder()
+        .projectId(userId)
         .userId(userId)
-        .taskId(taskId)
         .title(projectUpdateRequest.getTitle())
         .taskList(TaskMapper.toTaskList(projectUpdateRequest.getDetailList()))
         .build();

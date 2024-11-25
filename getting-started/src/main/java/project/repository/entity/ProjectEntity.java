@@ -26,11 +26,11 @@ import lombok.NoArgsConstructor;
 public class ProjectEntity extends PanacheEntityBase   {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long taskId;
+    private Long projectId;
     private Long userId;
     private String title;
     private String registerDate;
 
-    @OneToMany(mappedBy= "detailUserId")
+    @OneToMany(mappedBy= "parentProjectId")
     List<TaskEntity> taskList;
 }

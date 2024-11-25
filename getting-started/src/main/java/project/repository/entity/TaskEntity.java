@@ -27,10 +27,10 @@ public class TaskEntity extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long taskId;
-    private Long detailUserId;
+    private Long parentProjectId;
     private String taskName;
     private String status;
     @ManyToOne
-    @JoinColumn(name = "userId", insertable=false, updatable=false)
+    @JoinColumn(name = "projectId", insertable=false, updatable=false)
     private ProjectEntity project;
 }

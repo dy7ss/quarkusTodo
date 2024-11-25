@@ -8,7 +8,7 @@ import project.domain.TaskStatus;
 @Builder
 public class Task {
     private Long taskId;
-    private Long detailUserId;
+    private Long parentProjectId;
     private String taskName;
     private TaskStatus status;
 }
