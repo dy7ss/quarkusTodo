@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -27,10 +28,17 @@ public class TaskEntity extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long taskId;
+    @Id
     private Long parentProjectId;
+    @Id
+    private Long taskUserId;
     private String taskName;
     private String status;
-    @ManyToOne
-    @JoinColumn(name = "projectId", insertable=false, updatable=false)
-    private ProjectEntity project;
+    // @ManyToOne
+    // @JoinColumns({
+
+    //     @JoinColumn(name = "parentProjectId", referencedColumnName = "projectId", insertable=false, updatable=false),
+    //     @JoinColumn(name = "taskUserId", referencedColumnName = "userId",  insertable=false, updatable=false)
+    // })
+    // private ProjectEntity project;
 }

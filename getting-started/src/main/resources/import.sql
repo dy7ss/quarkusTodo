@@ -24,8 +24,15 @@ INSERT INTO users (userName, email) VALUES
 ('jiro', 'example@google.com'),
 ('saburo', 'example@hoge.com');
 
-INSERT INTO task (parentProjectId, taskName, status) VALUES
-(1, '明細１', '1'),
-(1, '明細２', '0'),
-(2, '明細３', '1'),
-(1, '明細４', '0');
+-- INSERT INTO task (parentProjectId, taskName, status) VALUES
+-- (1, '明細１', '1'),
+-- (1, '明細２', '0'),
+-- (2, '明細３', '1'),
+-- (1, '明細４', '0');
+
+INSERT INTO task (parentProjectId, taskUserId, taskName, status) VALUES
+(1, 1,'明細１',  '1'),
+(1, 1, '明細２', '0'),
+(2, 1, '明細３', '1'),
+(1, 1, '明細４', '0');
+

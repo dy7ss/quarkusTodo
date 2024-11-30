@@ -8,6 +8,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -23,6 +26,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@IdClass(ProjectKey.class)
 public class ProjectEntity extends PanacheEntityBase   {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +35,15 @@ public class ProjectEntity extends PanacheEntityBase   {
     private String title;
     private String registerDate;
 
-    @OneToMany(mappedBy= "parentProjectId")
+    // @OneToMany
+    // @JoinColumns({
+    //     @JoinColumn(name = ""),
+    //     @JoinColumn(name = "")
+    // })
+    @OneToMany
+        @JoinColumns({
+        @JoinColumn(name = "parentProjectId", referencedColumnName = "projectId", insertable=false, updatable=false),
+        @JoinColumn(name = "taskUserId", referencedColumnName = "userId", insertable=false, updatable=false)
+    })
     List<TaskEntity> taskList;
 }

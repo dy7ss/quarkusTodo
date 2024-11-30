@@ -28,7 +28,7 @@ public class ProjectMapper {
                 .registerDate(input.getRegisterDate())
                 .taskList(input.getTaskList().stream().map(
                         i -> Task.builder()
-                                .taskId(i.getTaskId())
+                                // .taskId(i.getTaskId())
                                 .parentProjectId(i.getParentProjectId())
                                 .taskName(i.getTaskName())
                                 .status(TaskStatus.fromCode(i.getStatus()))
