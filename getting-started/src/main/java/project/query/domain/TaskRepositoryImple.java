@@ -1,4 +1,4 @@
-package project.domain;
+package project.query.domain;
 
 public interface TaskRepositoryImple {
     // public void update();

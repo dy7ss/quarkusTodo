@@ -2,9 +2,9 @@ package project.repository.mapper;
 
 import java.util.List;
 
-import project.domain.TaskStatus;
-import project.domain.entity.Project;
-import project.domain.entity.Task;
+import project.command.domain.TaskStatus;
+import project.command.domain.entity.Project;
+import project.command.domain.entity.Task;
 import project.repository.entity.ProjectEntity;
 
 public class ProjectMapper {

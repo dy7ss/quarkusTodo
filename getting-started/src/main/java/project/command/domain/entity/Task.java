@@ -1,8 +1,8 @@
-package project.domain.entity;
+package project.command.domain.entity;
 
 import lombok.Builder;
 import lombok.Value;
-import project.domain.TaskStatus;
+import project.command.domain.TaskStatus;
 
 @Value
 @Builder

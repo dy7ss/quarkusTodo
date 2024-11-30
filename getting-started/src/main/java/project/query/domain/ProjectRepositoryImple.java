@@ -1,8 +1,8 @@
-package project.domain;
+package project.query.domain;
 
 import java.util.List;
 
-import project.domain.entity.Project;
+import project.command.domain.entity.Project;
 
 public interface  ProjectRepositoryImple {
     List<Project> list(Long userId, String title);

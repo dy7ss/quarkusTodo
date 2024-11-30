@@ -1,4 +1,4 @@
-package project.domain.entity;
+package project.command.domain.entity;
 
 import java.util.List;
 

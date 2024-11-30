@@ -4,9 +4,9 @@ import java.util.List;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import project.domain.ProjectRepositoryImple;
-import project.domain.TaskStatus;
-import project.domain.entity.Project;
+import project.command.domain.ProjectRepositoryImple;
+import project.command.domain.TaskStatus;
+import project.command.domain.entity.Project;
 
 @ApplicationScoped
 public class ProjectService {

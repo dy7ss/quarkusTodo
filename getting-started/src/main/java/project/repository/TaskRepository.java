@@ -1,6 +1,6 @@
 package project.repository;
 
-import project.domain.TaskRepositoryImple;
+import project.command.domain.TaskRepositoryImple;
 
 public class TaskRepository implements TaskRepositoryImple {
 
