@@ -30,7 +30,4 @@ public class TaskEntity extends PanacheEntityBase {
     private Long parentProjectId;
     private String taskName;
     private String status;
-    @ManyToOne
-    @JoinColumn(name = "projectId", insertable=false, updatable=false)
-    private ProjectEntity project;
 }

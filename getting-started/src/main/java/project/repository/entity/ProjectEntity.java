@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -31,6 +33,7 @@ public class ProjectEntity extends PanacheEntityBase   {
     private String title;
     private String registerDate;
 
-    @OneToMany(mappedBy= "parentProjectId")
-    List<TaskEntity> taskList;
+    @OneToMany
+    @JoinColumn(name = "parentProjectId", referencedColumnName = "projectId", insertable=false, updatable=false)
+        List<TaskEntity> taskList;
 }
