@@ -32,8 +32,4 @@ public class ProjectEntity extends PanacheEntityBase   {
     private Long userId;
     private String title;
     private String registerDate;
-
-    @OneToMany
-    @JoinColumn(name = "parentProjectId", referencedColumnName = "projectId", insertable=false, updatable=false)
-        List<TaskEntity> taskList;
 }
