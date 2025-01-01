@@ -1,0 +1,13 @@
+generatorName: jaxrs-spec
+inputSpec: /local/project_openapi.yaml
+outputDir: /local/out/jaxrs-spec
+additionalProperties:
+  modelPackage: com.example.model
+  apiPackage: com.example.api
+  invokerPackage: com.example.invoker
+  groupId: com.example
+  artifactId: example-api
+  artifactVersion: 1.0.0
+  dateLibrary: java8
+  interfaceOnly: true
+  useTags: true
