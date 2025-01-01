@@ -1,8 +1,21 @@
 package project.repository;
 
+import jakarta.ws.rs.NotFoundException;
 import project.command.domain.TaskRepositoryImple;
+import project.command.domain.TaskStatus;
+import project.repository.entity.TaskEntity;
 
 public class TaskRepository implements TaskRepositoryImple {
+
+    @Override
+    public void changeStatus(Long taskId, TaskStatus status) {
+        // 排他ロック
+        TaskEntity entity = TaskEntity.findById(taskId);
+        if (entity == null){
+            throw new NotFoundException();
+        }
+        entity.setStatus(status.getCode());
+    }
 
     // @Override
     // public void update() {
