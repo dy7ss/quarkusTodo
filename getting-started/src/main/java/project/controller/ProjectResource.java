@@ -19,7 +19,6 @@ import jakarta.ws.rs.core.Response;
 import project.command.domain.TaskStatus;
 import project.command.domain.entity.Project;
 import project.controller.mapper.ProjectMapper;
-import project.controller.mapper.TaskMapper;
 import project.controller.model.ProjectCreateRequest;
 import project.controller.model.ProjectUpdateRequest;
 import project.service.ProjectService;
@@ -60,7 +59,6 @@ public class ProjectResource {
         return Response.status(Response.Status.OK).entity(null).build();
     }
 
-    
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)

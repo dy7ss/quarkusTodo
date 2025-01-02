@@ -6,7 +6,6 @@ import io.quarkus.panache.common.Parameters;
 import io.quarkus.runtime.util.StringUtil;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.LockModeType;
-import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import project.command.domain.ProjectRepositoryImple;
@@ -32,19 +31,15 @@ public class ProjectRepository implements ProjectRepositoryImple {
         }
 
         List<ProjectEntity> response = ProjectEntity.find(query, params).list();
-        System.out.println("response:::" + response);
 
         // 仮で全件取得
         List<TaskEntity> taskList = TaskEntity.listAll();
 
         List<Project> result = ProjectMapper.toProjectList(response, taskList);
-        log.debug("result:::" + result);
-        log.info("result:::2" + result);
 
         return result;
     }
 
-    @Transactional
     @Override
     public void create(Project project){
         System.out.println(project);
@@ -60,7 +55,6 @@ public class ProjectRepository implements ProjectRepositoryImple {
                 ).forEach(i -> i.persist());
     }
 
-    @Transactional
     @Override
     public void update(Project project) {
 
@@ -73,7 +67,6 @@ public class ProjectRepository implements ProjectRepositoryImple {
         entity.setTitle(project.getTitle());
     }
 
-    @Transactional
     @Override
     public void delete(Long id) {
 
@@ -85,7 +78,6 @@ public class ProjectRepository implements ProjectRepositoryImple {
     }
 
     @Override
-    @Transactional
     public void changeDetailstatus(Long taskId, TaskStatus status) {
         TaskEntity entity = TaskEntity.findById(taskId, LockModeType.PESSIMISTIC_WRITE);
         if (entity == null) {
