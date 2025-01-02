@@ -18,6 +18,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import project.command.domain.TaskStatus;
 import project.command.domain.entity.Project;
+import project.controller.mapper.ProjectMapper;
 import project.controller.mapper.TaskMapper;
 import project.controller.model.ProjectCreateRequest;
 import project.controller.model.ProjectUpdateRequest;
@@ -40,17 +41,8 @@ public class ProjectResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response create(@Valid ProjectCreateRequest projectCreateRequest){
-        System.out.println(projectCreateRequest);
-        System.out.println("foo");
 
-        Project input = Project.builder()
-        .userId(projectCreateRequest.getUserId())
-        .title(projectCreateRequest.getTitle())
-        .registerDate(projectCreateRequest.getRegisterDate())
-        .taskList(TaskMapper.toTaskList(projectCreateRequest.getDetailList()))
-        .build();
-
-        System.out.println("input:::" + input);
+        Project input = ProjectMapper.toProject(projectCreateRequest);
 
         projectService.create(input);
 
@@ -63,12 +55,7 @@ public class ProjectResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response change(@PathParam("userId") Long userId, @PathParam("projectId") Long projectId, @Valid ProjectUpdateRequest projectUpdateRequest){
 
-        Project project = Project.builder()
-        .projectId(userId)
-        .userId(userId)
-        .title(projectUpdateRequest.getTitle())
-        .taskList(TaskMapper.toTaskList(projectUpdateRequest.getDetailList()))
-        .build();
+        Project project = ProjectMapper.toProject(userId, projectUpdateRequest);
         projectService.update(project);
         return Response.status(Response.Status.OK).entity(null).build();
     }
