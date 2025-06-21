@@ -2,7 +2,7 @@ package project.query.domain.entity;
 
 import lombok.Builder;
 import lombok.Value;
-import project.command.domain.TaskStatus;
+import project.domain.entity.TaskStatus;
 
 @Value
 @Builder

@@ -1,7 +1,7 @@
 package project.repository.mapper;
 
-import project.command.domain.TaskStatus;
-import project.command.domain.entity.Task;
+import project.domain.entity.Task;
+import project.domain.entity.TaskStatus;
 import project.repository.entity.TaskEntity;
 
 public class TaskResponseMapper {

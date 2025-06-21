@@ -1,8 +1,8 @@
 package project.repository;
 
 import jakarta.ws.rs.NotFoundException;
-import project.command.domain.TaskRepositoryImple;
-import project.command.domain.TaskStatus;
+import project.domain.TaskRepositoryImple;
+import project.domain.entity.TaskStatus;
 import project.repository.entity.TaskEntity;
 
 public class TaskRepository implements TaskRepositoryImple {

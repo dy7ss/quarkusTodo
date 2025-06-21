@@ -1,8 +1,9 @@
-package project.command.domain;
+package project.domain;
 
 import java.util.List;
 
-import project.command.domain.entity.Project;
+import project.domain.entity.Project;
+import project.domain.entity.TaskStatus;
 
 public interface  ProjectRepositoryImple {
     List<Project> list(Long userId, String title);

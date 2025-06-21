@@ -1,4 +1,4 @@
-package project.command.domain;
+package project.domain.entity;
 
 public enum TaskStatus {
     NOT_STARTED("0","未着手"),

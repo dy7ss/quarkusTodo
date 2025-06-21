@@ -2,7 +2,7 @@ package project.repository.mapper;
 
 import java.util.List;
 
-import project.command.domain.entity.Project;
+import project.domain.entity.Project;
 import project.repository.entity.ProjectEntity;
 import project.repository.entity.TaskEntity;
 

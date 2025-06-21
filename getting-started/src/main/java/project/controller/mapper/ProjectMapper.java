@@ -1,9 +1,8 @@
 package project.controller.mapper;
 
-import jakarta.validation.Valid;
-import project.command.domain.entity.Project;
 import project.controller.model.ProjectCreateRequest;
 import project.controller.model.ProjectUpdateRequest;
+import project.domain.entity.Project;
 
 public class ProjectMapper {
 

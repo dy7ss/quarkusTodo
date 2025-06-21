@@ -16,11 +16,11 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import project.command.domain.TaskStatus;
-import project.command.domain.entity.Project;
 import project.controller.mapper.ProjectMapper;
 import project.controller.model.ProjectCreateRequest;
 import project.controller.model.ProjectUpdateRequest;
+import project.domain.entity.Project;
+import project.domain.entity.TaskStatus;
 import project.service.ProjectService;
 
 @Path("/project")
