@@ -12,7 +12,6 @@ public class UserService {
     UserRepositoryImple userRepositoryImple;
 
     public List<User> list(){
-        var result = userRepositoryImple.list();
-        return result;
+        return userRepositoryImple.list();
     }
 }

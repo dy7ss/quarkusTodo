@@ -7,7 +7,7 @@ import user.repository.entity.UserEntity;
 
 public class UserMapper {
 
-    public static List<User> toUserList(List<UserEntity> response) {
+    public static List<User> toUsers(List<UserEntity> response) {
         return response.stream().map(i -> toUser(i)).toList();
     }
     

@@ -19,9 +19,7 @@ public class UserRepository implements UserRepositoryImple{
 
     @Override
     public List<User> list() {
-
         List<UserEntity> response = UserEntity.listAll();
-        System.out.println(response);
-        return UserMapper.toUserList(response);
+        return UserMapper.toUsers(response);
     }
 }
