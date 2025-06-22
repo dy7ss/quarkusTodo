@@ -6,7 +6,6 @@ import java.util.Optional;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-import jakarta.validation.constraints.NotNull;
 import user.controller.dto.RestUser;
 import user.domain.UserRepositoryImple;
 import user.domain.entity.User;
@@ -24,7 +23,7 @@ public class UserService {
     }
 
     @Transactional
-    public void createUser(@NotNull RestUser user) {
+    public void createUser(RestUser user) {
         User newUser = User.builder()
                 .userName(user.getUserName())
                 .email(user.getEmail())

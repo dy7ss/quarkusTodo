@@ -1,6 +1,7 @@
 package user.controller;
 
 import jakarta.inject.Inject;
+import jakarta.validation.constraints.NotNull;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -40,7 +41,7 @@ public class UserResoure {
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createUser(RestUser user) {
+    public Response createUser(@NotNull RestUser user) {
 
         // return Response.status(Response.Status.OK).entity("OK").build();
 
