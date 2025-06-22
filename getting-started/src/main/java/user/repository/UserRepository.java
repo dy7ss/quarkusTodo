@@ -1,6 +1,7 @@
 package user.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import user.domain.UserRepositoryImple;
@@ -12,9 +13,12 @@ import user.repository.mapper.UserMapper;
 public class UserRepository implements UserRepositoryImple{
 
     @Override
-    public String getById() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getById'");
+    public Optional<User> getById(Long id) {
+        UserEntity result = UserEntity.findById(id);
+        if (result == null) {
+            return Optional.empty();
+        }
+        return Optional.of(UserMapper.toUser(result));
     }
 
     @Override

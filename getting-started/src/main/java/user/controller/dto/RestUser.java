@@ -1,4 +1,4 @@
-package user.controller.mapper.dto;
+package user.controller.dto;
 import lombok.Builder;
 import lombok.Value;
 

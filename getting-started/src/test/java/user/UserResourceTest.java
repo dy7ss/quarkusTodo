@@ -10,28 +10,8 @@ import static org.hamcrest.Matchers.hasSize;
 @QuarkusTest
 public class UserResourceTest {
 
-// [
-//   {
-//     "userId": 1,
-//     "userName": "taro",
-//     "email": "example@yahoo.co.jp"
-//   },
-//   {
-//     "userId": 2,
-//     "userName": "jiro",
-//     "email": "example@google.com"
-//   },
-//   {
-//     "userId": 3,
-//     "userName": "saburo",
-//     "email": "example@hoge.com"
-//   }
-// ]
-
-
-
     @Test
-    void testHelloEndpoint() {
+    void 一覧取得() {
         given()
             .when().get("/user")
             .then()
@@ -49,4 +29,18 @@ public class UserResourceTest {
                 "[2].email", is("example@hoge.com")
                 );
     }
+
+    @Test
+    void 一件取得() {
+        given()
+            .when().get("/user/1")
+            .then()
+            .statusCode(200)
+            .body(
+                "userId", is(1),
+                "userName", is("taro"),
+                "email", is("example@yahoo.co.jp")
+                );
+    }
+
 }

@@ -2,7 +2,14 @@
 GET http://localhost:8080/user
 
 ###
-GET http://localhost:8080/project
+GET http://localhost:8080/user/1
+
+###
+POST http://localhost:8080/user
+Content-Type:application/json
+
+###
+GET http://localhost:8080/project?userId=1
 
 ###
 GET http://localhost:8080/project?userId=1
@@ -26,11 +33,17 @@ Content-Type:application/json
 
 {
     "userId": 1,
-    "title": "aaa",
+    "title": "aaa1123",
     "registerDate": "2020-04-01",
     "detailList": [
         {
             "taskName": "taskNameExample"
+        },
+        {
+            "taskName": "taskNameExample2"
+        },
+        {
+            "taskName": "taskNameExample3"
         }
     ]
     

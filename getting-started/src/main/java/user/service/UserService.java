@@ -1,6 +1,7 @@
 package user.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -13,5 +14,9 @@ public class UserService {
 
     public List<User> list(){
         return userRepositoryImple.list();
+    }
+
+    public Optional<User> getUser(Long id) {
+        return userRepositoryImple.getById(id);
     }
 }
