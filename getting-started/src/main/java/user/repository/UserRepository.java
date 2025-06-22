@@ -26,4 +26,14 @@ public class UserRepository implements UserRepositoryImple{
         List<UserEntity> response = UserEntity.listAll();
         return UserMapper.toUsers(response);
     }
+
+    @Override
+    public Optional<User> create(User user) {
+        // if (user.getUserName() == null || user.getEmail() == null) {
+        //     return Optional.empty();
+        // }
+        UserEntity newUser = UserMapper.toUserEntity(user);
+        newUser.persist();
+        return Optional.of(UserMapper.toUser(newUser));
+    }
 }

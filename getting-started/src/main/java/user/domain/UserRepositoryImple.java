@@ -9,4 +9,5 @@ public interface UserRepositoryImple {
 
     public Optional<User> getById(Long id);
     public List<User> list();
+    public Optional<User> create(User user);
 } 

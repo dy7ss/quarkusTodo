@@ -18,6 +18,14 @@ public class UserMapper {
         .email(userEntity.getEmail())
         .build();
     }
+
+    public static UserEntity toUserEntity(User user) {
+        return UserEntity.builder()
+                .userId(user.getUserId())
+                .userName(user.getUserName())
+                .email(user.getEmail())
+                .build();
+    }
     
     
 }

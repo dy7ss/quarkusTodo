@@ -5,6 +5,9 @@ import java.util.Optional;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
+import jakarta.validation.constraints.NotNull;
+import user.controller.dto.RestUser;
 import user.domain.UserRepositoryImple;
 import user.domain.entity.User;
 @ApplicationScoped
@@ -18,5 +21,14 @@ public class UserService {
 
     public Optional<User> getUser(Long id) {
         return userRepositoryImple.getById(id);
+    }
+
+    @Transactional
+    public void createUser(@NotNull RestUser user) {
+        User newUser = User.builder()
+                .userName(user.getUserName())
+                .email(user.getEmail())
+                .build();
+        userRepositoryImple.create(newUser);
     }
 }

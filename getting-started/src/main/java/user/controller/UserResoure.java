@@ -42,11 +42,9 @@ public class UserResoure {
     @Produces(MediaType.APPLICATION_JSON)
     public Response createUser(RestUser user) {
 
-        return Response.status(Response.Status.OK).entity("OK").build();
+        // return Response.status(Response.Status.OK).entity("OK").build();
 
-        // var result = userService.createUser(user);
-        // if (result.isEmpty()) {
-        //     return Response.status(Response.Status.BAD_REQUEST).build();
-        // }
+        userSerivce.createUser(user);
+        return Response.status(Response.Status.CREATED).build();
+        }
     }
-}
