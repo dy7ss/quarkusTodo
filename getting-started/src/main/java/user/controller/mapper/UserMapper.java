@@ -15,7 +15,7 @@ public class UserMapper {
         return RestUser.builder()
                 .userId(user.getUserId())
                 .userName(user.getUserName())
-                .email(user.getEmail())
+                .email(user.getEmail().getStringValue())
                 .build();
     }
 }

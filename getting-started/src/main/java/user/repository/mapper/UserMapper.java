@@ -2,6 +2,7 @@ package user.repository.mapper;
 
 import java.util.List;
 
+import user.domain.entity.Email;
 import user.domain.entity.User;
 import user.repository.entity.UserEntity;
 
@@ -15,7 +16,7 @@ public class UserMapper {
         return User.builder()
         .userId(userEntity.getUserId())
         .userName(userEntity.getUserName())
-        .email(userEntity.getEmail())
+        .email(new Email(userEntity.getEmail()))
         .build();
     }
 
@@ -23,7 +24,7 @@ public class UserMapper {
         return UserEntity.builder()
                 .userId(user.getUserId())
                 .userName(user.getUserName())
-                .email(user.getEmail())
+                .email(user.getEmail().getStringValue())
                 .build();
     }
     

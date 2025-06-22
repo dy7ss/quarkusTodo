@@ -1,5 +1,7 @@
 package user.domain.entity;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
 import lombok.Value;
 
@@ -7,6 +9,8 @@ import lombok.Value;
 @Builder
 public class User {
     private Long userId;
+    @NotEmpty
     private String userName;
-    private String email;
+    @Valid
+    private Email email;
 }
