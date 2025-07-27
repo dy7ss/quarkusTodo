@@ -1,0 +1,14 @@
+.dockerignore
+.openapi-generator-ignore
+README.md
+pom.xml
+src/gen/java/org/openapitools/api/CustomerApi.java
+src/gen/java/org/openapitools/api/RestApplication.java
+src/gen/java/org/openapitools/api/RestResourceRoot.java
+src/gen/java/org/openapitools/model/Account.java
+src/gen/java/org/openapitools/model/AccountBaseInfo.java
+src/gen/java/org/openapitools/model/Customer.java
+src/main/docker/Dockerfile.jvm
+src/main/docker/Dockerfile.native
+src/main/resources/META-INF/openapi.yaml
+src/main/resources/application.properties

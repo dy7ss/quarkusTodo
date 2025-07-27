@@ -8,8 +8,8 @@ additionalProperties:
   openApiNullable: false
   useBeanValidation: true
   useRuntimeException: true
-  microprofileRestClientVersion: 3.0
-  serializationLibrary: jackson
+  microprofileRestClientVersion: "3.0"
+  serializationLibrary: "jackson"
   useJakartaEe: true
   generateBuilders: true
   interfaceOnly: true

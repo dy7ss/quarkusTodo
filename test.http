@@ -1,4 +1,22 @@
 ###
+GET http://localhost:8080/customer
+
+###
+POST http://localhost:8080/customer/
+Content-Type:application/json
+
+{
+  "customerId": "customerId",
+  "account": {
+    "baseInfo": {
+      "accountCustomerName": null
+    },
+    "accountId": "accountId"
+  }
+}
+
+
+###
 GET http://localhost:8080/user
 
 ###
