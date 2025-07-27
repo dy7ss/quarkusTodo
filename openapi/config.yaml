@@ -1,13 +1,17 @@
 generatorName: jaxrs-spec
-inputSpec: /local/project_openapi.yaml
+library: quarkus
+inputSpec: /local/openapi/poc_openapi.yaml
 outputDir: /local/out/jaxrs-spec
 additionalProperties:
-  modelPackage: com.example.model
-  apiPackage: com.example.api
-  invokerPackage: com.example.invoker
-  groupId: com.example
-  artifactId: example-api
-  artifactVersion: 1.0.0
-  dateLibrary: java8
+  dateLibrary:: java8-localdatetime
+  hideGenerationTimestamp: true
+  openApiNullable: false
+  useBeanValidation: true
+  useRuntimeException: true
+  microprofileRestClientVersion: 3.0
+  serializationLibrary: jackson
+  useJakartaEe: true
+  generateBuilders: true
   interfaceOnly: true
-  useTags: true
+  useSwaggerAnnotations: false
+  useMicroProfileOpenAPIAnnotations: false
