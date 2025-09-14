@@ -4,6 +4,7 @@ import java.util.List;
 
 import jakarta.inject.Inject;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -30,7 +31,7 @@ public class ProjectResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Project> list(@QueryParam("userId") Long userId, @QueryParam("title") String title){
+    public List<Project> list(@QueryParam("userId") @NotNull Long userId, @QueryParam("title") String title){
         var result = projectService.list(userId, title);
         System.out.println(result);
         return result;
