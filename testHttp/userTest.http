@@ -3,7 +3,7 @@ GET http://localhost:8080/user
 Content-Type:application/json
 
 ### ユーザ詳細取得
-GET http://localhost:8080/user/5
+GET http://localhost:8080/user/1
 Content-Type:application/json
 
 ### ユーザ登録

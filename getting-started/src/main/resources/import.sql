@@ -29,3 +29,8 @@ INSERT INTO task (parentProjectId, taskName, status) VALUES
 (1, '明細２', '0'),
 (2, '明細３', '1'),
 (1, '明細４', '0');
+
+INSERT INTO credential (userId, password) VALUES
+('1', 'password'),
+('2', 'password'),
+('3', 'password');

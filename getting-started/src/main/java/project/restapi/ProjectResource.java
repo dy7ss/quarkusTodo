@@ -15,6 +15,8 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.HttpHeaders;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import project.domain.entity.Project;
@@ -23,9 +25,17 @@ import project.restapi.mapper.ProjectMapper;
 import project.restapi.model.ProjectCreateRequest;
 import project.restapi.model.ProjectUpdateRequest;
 import project.service.ProjectService;
+import org.eclipse.microprofile.jwt.JsonWebToken;
 
 @Path("/project")
 public class ProjectResource {
+
+    @Context
+    HttpHeaders headers;
+
+    @Inject
+    JsonWebToken jwt;
+
     @Inject
     ProjectService projectService;
 
@@ -33,7 +43,11 @@ public class ProjectResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Project> list(@QueryParam("userId") @NotNull Long userId, @QueryParam("title") String title){
         var result = projectService.list(userId, title);
-        System.out.println(result);
+        
+        // System.out.println("headers:" + headers);
+        // System.out.println(headers.getHeaderString("X-User-Id"));
+        // System.out.println(headers.getHeaderString(HttpHeaders.CONTENT_TYPE));
+        // System.out.println(result);
         return result;
     }
     
