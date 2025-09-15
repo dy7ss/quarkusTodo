@@ -1,4 +1,4 @@
-package project.restapi.filter;
+package common.filter;
 
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerResponseContext;
