@@ -68,9 +68,9 @@ public class ProjectRepository implements ProjectRepositoryImple {
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(Long projectId) {
 
-        ProjectEntity entity = ProjectEntity.findById(id);
+        ProjectEntity entity = ProjectEntity.findById(projectId);
         if (entity == null) {
             throw new NotFoundException();
         }

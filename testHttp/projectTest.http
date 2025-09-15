@@ -2,8 +2,6 @@
 GET http://localhost:8080/project?userId=1
 Content-Type:application/json
 
-### test
-GET http://localhost:8080/project?userId=1
 
 ### プロジェクト登録
 POST http://localhost:8080/project/
@@ -25,3 +23,7 @@ Content-Type:application/json
         }
     ]
 }
+
+### プロジェクト削除
+DELETE http://localhost:8080/project/1
+Content-Type:application/json
