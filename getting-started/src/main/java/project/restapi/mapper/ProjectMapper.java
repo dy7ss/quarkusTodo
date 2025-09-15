@@ -1,8 +1,8 @@
-package project.controller.mapper;
+package project.restapi.mapper;
 
-import project.controller.model.ProjectCreateRequest;
-import project.controller.model.ProjectUpdateRequest;
 import project.domain.entity.Project;
+import project.restapi.model.ProjectCreateRequest;
+import project.restapi.model.ProjectUpdateRequest;
 
 public class ProjectMapper {
 

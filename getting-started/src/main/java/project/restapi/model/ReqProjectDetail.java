@@ -1,4 +1,4 @@
-package project.controller.model;
+package project.restapi.model;
 
 import lombok.Builder;
 import lombok.Value;

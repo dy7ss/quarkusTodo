@@ -1,10 +1,10 @@
-package project.controller.mapper;
+package project.restapi.mapper;
 
 import java.util.List;
 
-import project.controller.model.ReqProjectDetail;
 import project.domain.entity.Task;
 import project.domain.entity.TaskStatus;
+import project.restapi.model.ReqProjectDetail;
 
 public class TaskMapper {
 

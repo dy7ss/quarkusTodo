@@ -1,7 +1,7 @@
-package project.controller;
+package project.restapi;
 
-import project.controller.model.ProjectUpdateResponse;
 import project.repository.entity.ProjectEntity;
+import project.restapi.model.ProjectUpdateResponse;
 
 public class UpdateResponseMapper {
 

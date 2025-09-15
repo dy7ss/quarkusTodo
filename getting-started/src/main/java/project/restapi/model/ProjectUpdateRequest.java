@@ -1,4 +1,4 @@
-package project.controller.model;
+package project.restapi.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +8,7 @@ import lombok.Setter;
 
 @Data
 @Setter
-public class ProjectCreateRequest {
-    private Long userId;
+public class ProjectUpdateRequest {
     private String title;
-    private String registerDate;
     private List<ReqProjectDetail> detailList = new ArrayList<>();
 }

@@ -1,12 +1,12 @@
-package project.controller.model;
+package project.restapi.model;
 
 import lombok.Builder;
 import lombok.Value;
 
 @Value
 @Builder
-public class ProjectInputResponse {
-    private String taskId;
+public class ProjectUpdateResponse {
+    private Long projectId;
     private String task;
     private String registerDate;
 }
