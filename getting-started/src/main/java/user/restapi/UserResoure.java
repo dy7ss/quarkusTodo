@@ -1,4 +1,4 @@
-package user.controller;
+package user.restapi;
 
 import jakarta.inject.Inject;
 import jakarta.validation.constraints.NotNull;
@@ -10,8 +10,8 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import user.controller.dto.RestUser;
-import user.controller.mapper.UserMapper;
+import user.restapi.dto.RestUser;
+import user.restapi.mapper.UserMapper;
 import user.service.UserService;
 
 @Path("/user")

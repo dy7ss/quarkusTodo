@@ -1,9 +1,9 @@
-package user.controller.mapper;
+package user.restapi.mapper;
 
 import java.util.List;
 
-import user.controller.dto.RestUser;
 import user.domain.entity.User;
+import user.restapi.dto.RestUser;
 
 public class UserMapper {
     public static List<RestUser> toUsers(List<User> users){

@@ -1,4 +1,4 @@
-package user.controller.dto;
+package user.restapi.dto;
 import lombok.Builder;
 import lombok.Value;
 

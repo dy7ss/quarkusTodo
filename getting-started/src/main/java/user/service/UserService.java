@@ -8,10 +8,10 @@ import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Validator;
-import user.controller.dto.RestUser;
 import user.domain.UserRepositoryImple;
 import user.domain.entity.Email;
 import user.domain.entity.User;
+import user.restapi.dto.RestUser;
 
 @ApplicationScoped
 public class UserService {
