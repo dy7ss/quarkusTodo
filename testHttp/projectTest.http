@@ -1,0 +1,29 @@
+### プロジェクト一覧取得
+GET http://localhost:8080/project?userId=1
+Content-Type:application/json
+
+
+### プロジェクト登録
+POST http://localhost:8080/project/
+Content-Type:application/json
+
+{
+    "userId": 1, 
+    "title": "Finish the tutorial on Quarkus framework",
+    "registerDate": "2024-06-20",
+    "detailList": [
+        {
+            "taskName": "Read the official documentation"
+        },
+        {
+            "taskName": "Write some example code"
+        },
+        {
+            "taskName": "Build a small project"
+        }
+    ]
+}
+
+### プロジェクト削除
+DELETE http://localhost:8080/project/1
+Content-Type:application/json

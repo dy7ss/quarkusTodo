@@ -1,0 +1,74 @@
+openapi: 3.0.3
+info:
+  title: Nested Pattern Validation Test
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /customer:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+          description: OK
+      summary: Get a customer (dummy)
+      x-accepts: application/json
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+        required: true
+      responses:
+        "201":
+          description: Created
+      summary: Create a customer
+      x-content-type: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    Customer:
+      example:
+        customerId: customerId
+        account:
+          baseInfo:
+            accountCustomerName: John
+          accountId: accountId
+      properties:
+        customerId:
+          type: string
+        account:
+          $ref: '#/components/schemas/Account'
+      required:
+      - account
+      - customerId
+      type: object
+    Account:
+      example:
+        baseInfo:
+          accountCustomerName: John
+        accountId: accountId
+      properties:
+        accountId:
+          type: string
+        baseInfo:
+          $ref: '#/components/schemas/AccountBaseInfo'
+      required:
+      - accountId
+      - baseInfo
+      type: object
+    AccountBaseInfo:
+      example:
+        accountCustomerName: John
+      properties:
+        accountCustomerName:
+          example: John
+          pattern: "^[A-Z][a-z]+$"
+          type: string
+      required:
+      - accountCustomerName
+      type: object

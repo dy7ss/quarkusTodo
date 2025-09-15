@@ -1,0 +1,16 @@
+### ユーザ一覧取得
+GET http://localhost:8080/user
+Content-Type:application/json
+
+### ユーザ詳細取得
+GET http://localhost:8080/user/5
+Content-Type:application/json
+
+### ユーザ登録
+POST http://localhost:8080/user
+Content-Type:application/json
+
+{
+    "userName": "updatedUser",
+    "email": "hoge@example.com"
+}
