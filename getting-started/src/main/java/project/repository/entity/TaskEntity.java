@@ -3,9 +3,12 @@ package project.repository.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,7 +28,10 @@ public class TaskEntity extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long taskId;
-    private Long parentProjectId;
+    private Long parentProjectId; 
     private String taskName;
     private String status;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parentProjectId", insertable = false, updatable = false)
+    private ProjectEntity project;
 }

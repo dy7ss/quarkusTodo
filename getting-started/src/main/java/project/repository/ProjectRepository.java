@@ -42,10 +42,10 @@ public class ProjectRepository implements ProjectRepositoryImple {
 
     @Override
     public void create(Project project){
-        System.out.println(project);
         ProjectEntity projectEntity = ProjectMapper.toProjectOfCreate(project);
         projectEntity.persist();
-        // N+1問題
+
+        // // N+1問題
         project.getTaskList().stream().map(i -> 
         TaskEntity.builder()
                 .parentProjectId(projectEntity.getProjectId())
