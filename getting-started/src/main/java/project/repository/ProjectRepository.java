@@ -45,14 +45,13 @@ public class ProjectRepository implements ProjectRepositoryImple {
         ProjectEntity projectEntity = ProjectMapper.toProjectOfCreate(project);
         projectEntity.persist();
 
-        // // N+1問題
-        project.getTaskList().stream().map(i -> 
-        TaskEntity.builder()
-                .parentProjectId(projectEntity.getProjectId())
-                .taskName(i.getTaskName())
-                .status(i.getStatus().getCode())
-                .build()
-                ).forEach(i -> i.persist());
+        // project.getTaskList().stream().map(i -> {
+        //     return TaskEntity.builder()
+        //         .projectId(projectEntity.getProjectId())
+        //         .taskName(i.getTaskName())
+        //         .status(i.getStatus().getCode())
+        //         .build();
+        // }).forEach(i -> i.persist());
     }
 
     @Override

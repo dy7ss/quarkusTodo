@@ -25,7 +25,8 @@ public class ProjectMapper {
                 .userId(input.getUserId())
                 .title(input.getTitle())
                 .registerDate(input.getRegisterDate())
-                .taskList(taskList.stream().filter(i -> i.getParentProjectId().equals(input.getProjectId())).map(i -> TaskResponseMapper.toTask(i)).toList())
+                .taskList(input.getTaskList().stream().map(j -> TaskResponseMapper.toTask(j)).toList())
+                // .taskList(taskList.stream().filter(i -> i.getParentProjectId().equals(input.getProjectId())).map(i -> TaskResponseMapper.toTask(i)).toList())
                 .build();
     }
 

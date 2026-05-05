@@ -1,17 +1,18 @@
 ### プロジェクト一覧取得
 GET http://localhost:8080/project?userId=1
 X-User-Id: 1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAiLCJ1cG4iOiIyIiwiZ3JvdXBzIjpbIlVTRVIiXSwiZXhwIjoxNzU3OTQ3OTIxLCJpYXQiOjE3NTc5NDQzMjEsImp0aSI6ImQ0ZDFiN2MzLWJkMmUtNGI3MS1hOTI1LTA5YWE2MjI1OTJiZSJ9.bbcW6HjXuio_ubg8SxkKV1cqgtO36CA80ruxD_hZHV4Dsb_6O4jrXVMIHxoecQGI_zHImJu3ainpONYgE6FZlI1w4hBJWM6Nx5XT5G8XFm252UNOdL29_r8ouyW7uBC9CvebjEDojOqFFi5ZgJdtrQn-a2z3Zs6d9IoPhc8IqLihKTTsLU3_l8j3SKtWI2T5W5VmAxUKhtn_u7dv1R4uP4HjHhseskFSeV0TZcYIeApB9yLgCCjJ_nb9HVuGMIc6wuXS_uOZGrma9Fd2csNzp_yMxXQQyCvf2wL0k_mcmXJ9rrnIGN5qPPdc-K2qtoOg-3XGOzEpCXgJZTuBSlWNdw
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAiLCJ1cG4iOiIyIiwiZ3JvdXBzIjpbIlVTRVIiXSwiZXhwIjoxNzc0MDk4NjYyLCJpYXQiOjE3NzQwOTUwNjIsImp0aSI6ImM4MTJkMGNkLWNhMjktNDI0ZC04NzI5LTNlYTA5YjlhNzcxOCJ9.h9RCt93NJQ1V94GmLV3r5JDt2bGXiSiTRUa19uDUr_TFG0q0TnkCW3EKS3qC9-Naam44k_iIX3lwA2RQ8X7nR9Nzwx_hDtw0DQGXmKrMFVVEJJULgMur1dsQ9o4hrRixinxPdeYU7WleRe_P9mllz1pgA7yibynnaLKO4SqD7oQWeXw8CxvtQ-FHUq0CeZXpa00hmDnhoepE8uhsXTCZocQK2McdcFEQ_5w8Fs0H1t8mfUuVnltPr6YJB-vnDwMOW8y0qB6ZjG9HT3pEkgMBdUPKXWnPVD9N8VxOh8COrN8CseEVTyz86hHqYTHgK2LHarSf3Zoe0zr_qrO8qRXLqA
 Content-Type:application/json
 
 
 ### プロジェクト登録
 POST http://localhost:8080/project/
 Content-Type:application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAiLCJ1cG4iOiIyIiwiZ3JvdXBzIjpbIlVTRVIiXSwiZXhwIjoxNzc0MDk4NjYyLCJpYXQiOjE3NzQwOTUwNjIsImp0aSI6ImM4MTJkMGNkLWNhMjktNDI0ZC04NzI5LTNlYTA5YjlhNzcxOCJ9.h9RCt93NJQ1V94GmLV3r5JDt2bGXiSiTRUa19uDUr_TFG0q0TnkCW3EKS3qC9-Naam44k_iIX3lwA2RQ8X7nR9Nzwx_hDtw0DQGXmKrMFVVEJJULgMur1dsQ9o4hrRixinxPdeYU7WleRe_P9mllz1pgA7yibynnaLKO4SqD7oQWeXw8CxvtQ-FHUq0CeZXpa00hmDnhoepE8uhsXTCZocQK2McdcFEQ_5w8Fs0H1t8mfUuVnltPr6YJB-vnDwMOW8y0qB6ZjG9HT3pEkgMBdUPKXWnPVD9N8VxOh8COrN8CseEVTyz86hHqYTHgK2LHarSf3Zoe0zr_qrO8qRXLqA
 
 {
     "userId": 1, 
-    "title": "Finish the tutorial on Quarkus framework",
+    "title": "Finish the tutorial on Quarkus framework333333",
     "registerDate": "2024-06-20",
     "detailList": [
         {
@@ -21,7 +22,7 @@ Content-Type:application/json
             "taskName": "Write some example code"
         },
         {
-            "taskName": "Build a small project"
+            "taskName": "タスク"
         }
     ]
 }

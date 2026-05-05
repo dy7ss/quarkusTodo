@@ -10,7 +10,10 @@ import org.junit.jupiter.api.Test;
 import io.quarkus.test.TestTransaction;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 import project.domain.entity.Project;
+import project.domain.entity.TaskStatus;
 import project.repository.entity.ProjectEntity;
 import project.repository.entity.TaskEntity;
 
@@ -20,8 +23,11 @@ public class ProjectRepositoryTest {
     @Inject
     ProjectRepository projectRepository;
 
+    @Inject
+    EntityManager em;
+
     @Test
-    @TestTransaction
+    @Transactional
     void userIdのみでフィルタリングする場合() {
         // テストデータのクリーンアップ
         TaskEntity.deleteAll();
@@ -32,6 +38,7 @@ public class ProjectRepositoryTest {
                 .userId(1L)
                 .title("Project A")
                 .registerDate("2023-01-01")
+                .taskList(new java.util.ArrayList<>())
                 .build();
         project1.persist();
 
@@ -43,12 +50,12 @@ public class ProjectRepositoryTest {
         project2.persist();
 
         TaskEntity task1 = TaskEntity.builder()
-                .project(project1)
-                .parentProjectId(project1.getProjectId())
                 .taskName("Task 1")
                 .status("0")
+                .project(project1)
                 .build();
-        task1.persist();
+        project1.getTaskList().add(task1);
+        project1.persist();
 
         // メソッド実行
         List<Project> result = projectRepository.list(1L, null);
@@ -61,7 +68,7 @@ public class ProjectRepositoryTest {
     }
 
     @Test
-    @TestTransaction
+    @Transactional
     void userIdとtitleでフィルタリングする場合() {
         // テストデータのクリーンアップ
         TaskEntity.deleteAll();
@@ -91,7 +98,7 @@ public class ProjectRepositoryTest {
     }
 
     @Test
-    @TestTransaction
+    @Transactional
     void 該当するプロジェクトがない場合() {
         // テストデータのクリーンアップ
         TaskEntity.deleteAll();
@@ -102,5 +109,49 @@ public class ProjectRepositoryTest {
 
         // アサーション
         assertTrue(result.isEmpty());
+    }
+
+    @Test
+    @Transactional
+    void createのテスト(){
+        // テストデータのクリーンアップ
+        // TaskEntity.deleteAll();
+        // ProjectEntity.deleteAll();
+
+        // プロジェクトの作成
+        Project projectInput = Project.builder()
+                .userId(1L)
+                .title("New Project")
+                .registerDate("2024-06-20")
+                .taskList(List.of(
+                    project.domain.entity.Task.builder()
+                        .taskName("Task 1")
+                        .status(TaskStatus.COMPLETED)
+                        .build(),
+                    project.domain.entity.Task.builder()
+                        .taskName("Task 2")
+                        .status(TaskStatus.IN_PROGRESS)
+                        .build()
+                ))
+                .build();
+
+        projectRepository.create(projectInput);
+
+        // EntityManagerを使って登録したレコードを取得する
+        List<ProjectEntity> projects = em.createQuery(
+            "SELECT p FROM ProjectEntity p join fetch p.taskList"
+        , ProjectEntity.class).getResultList();
+        System.out.println("projects: " + projects);
+
+        // データベースからプロジェクトを取得
+        List<Project> result = projectRepository.list(1L, "New Project");
+
+        System.out.println("test input");
+        System.out.println(result);
+
+        // // アサーション
+        // assertEquals(1, result.size());
+        // assertEquals("New Project", result.get(0).getTitle());
+        // assertEquals(2, result.get(0).getTaskList().size());
     }
 }
